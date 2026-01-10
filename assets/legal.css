@@ -1,0 +1,115 @@
+/* legal/assets/legal.css */
+/* Shared styles for MyOpen legal pages (privacy/terms/licenses) */
+
+
+
+:root {
+  --bg: #0b1220;
+  --card: #101a33;
+  --text: #e8eefc;
+  --muted: #b8c2e0;
+  --link: #7db4ff;
+  --border: rgba(255,255,255,.12);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Noto Sans TC", "Noto Sans JP", Helvetica, Arial,
+        "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 18px 64px;
+}
+
+.top {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 18px;
+  margin-top: 14px;
+}
+
+h1 { font-size: 26px; margin: 10px 0 6px; }
+h2 { font-size: 18px; margin: 18px 0 8px; }
+h3 { font-size: 16px; margin: 14px 0 6px; }
+
+.muted { color: var(--muted); }
+
+ul { padding-left: 20px; }
+
+code, pre {
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2px 6px;
+}
+
+pre {
+  white-space: pre-wrap;
+  padding: 12px;
+  overflow: auto;
+}
+
+.hr {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+.footer {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Language switcher */
+.lang {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.lang a {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.lang a.active {
+  background: rgba(255,255,255,.08);
+}
+
+/* i18n blocks */
+[data-lang] { display: none; }
