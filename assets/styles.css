@@ -181,8 +181,36 @@ header p {
   margin-bottom: 16px;
 }
 
-.btn-full-width {
+.btn-active {
   width: 100%;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.btn-inactive {
+  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--text-sub);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* .btn-column.inactive {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px dashed var(--border);
+  background: rgba(0, 255, 255, 0.03);
+}
+
+.btn.btn-disabled {
+  background: transparent;
+  color: var(--text-sub);
+  border: 1px dashed var(--border);
+  cursor: not-allowed;
+  pointer-events: none; */
 }
 
 /* --- Sections --- */

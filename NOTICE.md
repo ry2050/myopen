@@ -6,7 +6,7 @@ It is part of the following initiatives:
 
 - 🎥 **Build Apps with AI** – AI-assisted app development series
 - 🚀 **CodeTo2050** – a long-term learning journey
-- 🌐 **MyOpen App Series** – https://codeto2050.myopen.app
+- 🌐 **MyOpen App Series** – https://www.myopen.app
 
 ---
 

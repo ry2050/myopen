@@ -1,24 +1,21 @@
 # MyOpen App 
 
-This repository is a **template** for building small, educational app projects
+This repository is for building small, educational app projects
 as part of the **MyOpen App Series**.
 
 It is designed for projects created under:
 
 - 🎥 **Build Apps with AI**
 - 🚀 **CodeTo2050**
-- 🌐 https://CodeTo2050.myopen.app
+- 🌐 https://www.myopen.app
+- YT https://www.youtube.com/@CodeTo2050
 
 ---
 
-## How to use this template
+## How to use these apps
 
-1. Click **Use this template** on GitHub
-2. Create a new repository named:
-   - `myopen-app-game-<game_name>` or
-   - `myopen-app-tool-<tool_name>`
-3. Replace the project README with your app-specific README
-4. Start building your app 🎉
+- Clone it! Build it!
+- Start playing with your app 🎉
 
 ---
 
@@ -32,5 +29,5 @@ It is designed for projects created under:
 
 ## Author
 
-Created by **Robert (Robe)**  
+Created by **Robert Yang**  
 MyOpen · Build Apps with AI · CodeTo2050
