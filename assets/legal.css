@@ -92,6 +92,10 @@ pre {
   font-size: 14px;
 }
 
+.footer-center {
+  text-align: center;
+}
+
 /* Language switcher */
 .lang {
   display: flex;
