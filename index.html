@@ -1,15 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyOpen.app — Apps by Robert Yang (CodeTo2050)</title>
-  <meta name="description" content="MyOpen app series by Robert Yang, created as part of the CodeTo2050 project." />
+  <title>MyOpen.app — Apps by MyOpen Intelligent Studio (CodeTo2050)</title>
+  <meta name="description"
+    content="MyOpen app series by MyOpen Intelligent Studio, created as part of the CodeTo2050 project." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
-<body>
+<body data-theme="dark">
+  <!-- <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+    <svg class="icon-moon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="18.36" x2="5.64" y2="19.78"></line>
+      <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
+    </svg>
+  </button> -->
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
   <div class="container">
     <header>
       <div class="badge">
@@ -17,40 +57,72 @@
         <span>·</span>
         <span>CodeTo2050</span>
         <span>·</span>
-        <span>Built by Robert Yang</span>
-      </div>
-      <div class="badge">
-        <a href="https://www.youtube.com/@CodeTo2050" target="_blank">YT: CodeTo2050</a>
+        <span>Built by MyOpen Intelligent Studio</span>
       </div>
 
       <h1>MyOpen App Series<br />Code To 2050, and beyond!</h1>
-      <p>
+      <p class="intro-main">
         MyOpen.app is the public home for my apps. <br />
-        I also share tutorials and dev logs on <a href="https://www.youtube.com/@CodeTo2050" target="_blank">YouTube</a>.<br />
+        Crafted with <strong>Flutter</strong> for native performance and released as <strong>Open Source</strong>.
+        These are also published on the <strong>App Store</strong> and <strong>Google Play</strong>.
       </p>
+      <div class="support-action">
+        If you find my projects helpful, please consider <strong>supporting my work</strong> or purchasing the
+        <strong>Pro version</strong> to help me keep building!
+      </div>
     </header>
 
     <div class="section-title">
-      <h2>Apps for iOS and Android</h2>
-      <!-- <div class="muted">
-        Legal pages: <a href="/legal/">/legal/</a> (per-app: <code>/legal/&lt;app&gt;/</code>)
-      </div> -->
+      <h2>Open Source Apps for iOS and Android</h2>
     </div>
 
     <main class="project-grid">
       <!-- TicTacToe -->
       <article class="card">
-        <div class="card-image"><img src=assets/tictactoe-128x128.png "TicTacToe icon"></div>
         <div class="card-content">
-          <h3>TicTacToe</h3>
+          <div class="card-header">
+            <div class="app-icon-container">
+              <img src="assets/tictactoe-128x128.png" alt="TicTacToe icon">
+            </div>
+            <div class="header-text">
+              <span class="card-category">Classic Game</span>
+              <h3>TicTacToe</h3>
+            </div>
+          </div>
           <p>A simple but smart cross-platform TicTacToe app.</p>
+
+          <div class="store-buttons">
+            <a href="#" class="btn-store">
+              <svg class="icon" viewBox="0 0 384 512" width="24" height="24" fill="currentColor">
+                <path
+                  d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 21.8-88.5 21.8-11.4 0-51.1-20.8-82-20.8C73.1 140.3 0 200.7 0 304.1c0 73.1 43.1 199.1 106.6 199.1 27.6 0 51.1-20.1 82.5-20.1 30.5 0 50.8 20.1 82.3 20.1 61.2 0 101.5-121.3 101.5-121.3-113.8-49.4-94.2-203.2 15.8-213.3zM283 50.1c17.6-21.7 29.8-51.8 29.8-81.8 0-4.6-.3-9.1-1.3-13.5-29.3 1.2-58.3 19.3-77.5 41.8-16.7 19.2-29.8 48.7-29.8 78 0 4.8.5 9.7 1.4 13.7 32-2.5 60-20.6 77.4-38.2z" />
+              </svg>
+              <div>
+                <span class="text-small">Download on the</span>
+                <span class="text-large">App Store</span>
+              </div>
+            </a>
+            <a href="#" class="btn-store btn-inactive">
+              <svg class="icon" viewBox="0 0 512 512" width="24" height="24" fill="currentColor">
+                <path
+                  d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
+              </svg>
+              <div>
+                <span class="text-small">GET IT ON</span>
+                <span class="text-large">Google Play</span>
+              </div>
+            </a>
+          </div>
+
           <div class="btn-column">
-            <a href="https://www.youtube.com/watch?v=some-video-id" class="btn btn-active" target="_blank">Demo@Youtube</a>
-            <a href="https://github.com/ry2050/myopen-tictactoe" class="btn btn-active" target="_blank">Project@Github</a>          </div>
-          <div class="tags">
-            <span class="tag">Game</span>
-            <span class="tag">iOS</span>
-            <span class="tag">Android</span>
+            <a href="https://github.com/ry2050/myopen-tictactoe" class="btn secondary" target="_blank">View on
+              GitHub</a>
+          </div>
+
+          <div class="card-features">
+            <span class="feature">MIT License</span>
+            <span>•</span>
+            <span class="feature">Clean Design</span>
           </div>
           <div class="btn-row">
             <a href="/tictactoe/privacy-policy.html" class="btn secondary legal-link">Privacy</a>
@@ -60,25 +132,56 @@
         </div>
       </article>
 
-      <!-- Subscription Manager -->
+      <!-- SubMan: Subscription Manager -->
       <article class="card">
-        <div class="card-image"><img src=assets/subscriptionmanager-128x128.png "TicTacToe icon"></div>
         <div class="card-content">
-          <h3>Subscription Manager</h3>
-          <p>Track and manage subscriptions in one place. (Coming soon)</p>
-          <div class="btn-column">
-            <div class="btn secondary btn-inactive">Demo@Youtube (Coming soon)</div>
-            <div class="btn secondary btn-inactive">Project@Github (Coming soon)</div>
+          <div class="card-header">
+            <div class="app-icon-container">
+              <img src="assets/subscriptionmanager-128x128.png" alt="SubMan icon">
+            </div>
+            <div class="header-text">
+              <span class="card-category">Productivity</span>
+              <h3>SubMan</h3>
+            </div>
           </div>
-          <div class="tags">
-            <span class="tag">Productivity</span>
-            <span class="tag">iOS</span>
-            <span class="tag">Android</span>
+          <p>SubMan - Subscription Manager. Track and manage your subscriptions in one place.</p>
+
+          <div class="store-buttons">
+            <a href="#" class="btn-store btn-inactive">
+              <svg class="icon" viewBox="0 0 384 512" width="24" height="24" fill="currentColor">
+                <path
+                  d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 21.8-88.5 21.8-11.4 0-51.1-20.8-82-20.8C73.1 140.3 0 200.7 0 304.1c0 73.1 43.1 199.1 106.6 199.1 27.6 0 51.1-20.1 82.5-20.1 30.5 0 50.8 20.1 82.3 20.1 61.2 0 101.5-121.3 101.5-121.3-113.8-49.4-94.2-203.2 15.8-213.3zM283 50.1c17.6-21.7 29.8-51.8 29.8-81.8 0-4.6-.3-9.1-1.3-13.5-29.3 1.2-58.3 19.3-77.5 41.8-16.7 19.2-29.8 48.7-29.8 78 0 4.8.5 9.7 1.4 13.7 32-2.5 60-20.6 77.4-38.2z" />
+              </svg>
+              <div>
+                <span class="text-small">Download on the</span>
+                <span class="text-large">App Store</span>
+              </div>
+            </a>
+            <a href="#" class="btn-store btn-inactive">
+              <svg class="icon" viewBox="0 0 512 512" width="24" height="24" fill="currentColor">
+                <path
+                  d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
+              </svg>
+              <div>
+                <span class="text-small">GET IT ON</span>
+                <span class="text-large">Google Play</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="btn-column">
+            <a href="#" class="btn secondary btn-inactive">Project@GitHub (Coming soon)</a>
+          </div>
+
+          <div class="card-features">
+            <span class="feature">Privacy Focused</span>
+            <span>•</span>
+            <span class="feature">Zero Ads</span>
           </div>
           <div class="btn-row">
-            <a href="/subscriptionmanager/privacy-policy.html" class="btn secondary legal-link">Privacy</a>
-            <a href="/subscriptionmanager/terms.html" class="btn secondary legal-link">Terms</a>
-            <a href="/subscriptionmanager/open-source-licenses.html" class="btn secondary legal-link">Licenses</a>
+            <a href="/subman/privacy-policy.html" class="btn secondary legal-link">Privacy</a>
+            <a href="/subman/terms.html" class="btn secondary legal-link">Terms</a>
+            <a href="/subman/open-source-licenses.html" class="btn secondary legal-link">Licenses</a>
           </div>
         </div>
       </article>
@@ -103,9 +206,11 @@
     </main>
 
     <footer>
-      <p><strong>Developer / Responsible party:</strong> Robert Yang · <a href="mailto:support@myopen.app">support@myopen.app</a></p>
-      <p class="small">© 2025–2026 Robert Yang — MyOpen (myopen.app). <br>A MyOpen app series, created as part of the CodeTo2050 project.</p>
+      <p><a href="mailto:support@myopen.app">support@myopen.app</a></p>
+      <p class="small">© 2025–2026 MyOpen Intelligent Studio. <br>A MyOpen.app series, created as part of the
+        CodeTo2050 project.</p>
     </footer>
   </div>
 </body>
+
 </html>
