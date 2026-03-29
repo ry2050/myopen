@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open Source Licenses</title>
+  <meta name="description" content="AGPLv3 open source license notice for MyOpen Recurring." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/legal.css">
+  <style>
+    :root {
+      --bg: #0F172A;
+      --bg-card: #151f35;
+      --text: #F8FAFC;
+      --text-muted: #b8c8d8;
+      --text-dim: #7a90a8;
+      --accent: #38bdf8;
+      --border: rgba(248, 250, 252, 0.07);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      padding-top: 140px;
+      padding-bottom: 32px;
+    }
+
+    .top {
+      margin-bottom: 28px;
+    }
+
+    .top .badge:first-child {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      margin-top: 56px;
+      padding-top: 56px;
+    }
+
+    .footer .hr {
+      display: none;
+    }
+
+    .footer-shell {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      flex: 1;
+    }
+
+    .footer-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.65;
+      max-width: 320px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      padding-top: 2px;
+    }
+
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-muted);
+    }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+      opacity: 0.65;
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      .wrap {
+        padding-top: 120px;
+      }
+
+      .footer-shell {
+        flex-direction: column;
+        gap: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">myopen.app</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Product</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="../">All Apps</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="badge">
+          <span>MyOpen · CodeTo2050</span>
+          <span>｜</span>
+          <span>Legal</span>
+        </div>
+
+        <h1>Open Source Licenses for MyOpen Recurring</h1>
+
+        <div class="muted">
+          <span>Last updated: </span>
+          <span>2026-03-17</span>
+        </div>
+      </div>
+      <div>
+        <div class="badge">Version: 1.1</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>
+        <strong>MyOpen Recurring</strong> is distributed as free software and includes third-party open-source components. This page provides the project license notice and third-party attribution guidance.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>1. Project License</h2>
+      <p><strong>MyOpen Recurring</strong> is licensed under the <strong>GNU Affero General Public License, version 3 (AGPLv3)</strong>. This license applies to the project code unless a file or dependency states otherwise.</p>
+      <p>You may copy, modify, and redistribute the software under AGPLv3. If you run a modified version of this software for users over a network, AGPLv3 also requires you to make the corresponding source code of that modified version available to those users.</p>
+      <p>You should receive a copy of the AGPLv3 license together with this project. If not, see <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener">https://www.gnu.org/licenses/agpl-3.0.html</a>.</p>
+      <pre>
+GNU Affero General Public License, version 3
+
+Copyright (C) 2025 Robert Yang - MyOpen (myopen.app)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
+
+If you modify this program and let users interact with it remotely
+through a computer network, you must also offer those users access
+to the Corresponding Source under the AGPLv3.
+      </pre>
+    </div>
+
+    <div class="card">
+      <h2>2. Third-Party Components</h2>
+
+      <p class="muted">
+        Note: This application includes Flutter/Dart and the packages listed below. Each dependency remains subject to its own license terms.
+        Please review each package's LICENSE on pub.dev or in the app's licenses page where available.
+      </p>
+
+      <h3>2.1 Core Runtime</h3>
+      <ul>
+        <li>Flutter &amp; Dart (Google and the open-source community, generally under BSD-style terms)</li>
+      </ul>
+
+      <h3>2.2 Packages</h3>
+      <ul>
+        <li><a href="https://pub.dev/packages/url_launcher" target="_blank" rel="noopener">url_launcher</a></li>
+        <li><a href="https://pub.dev/packages/shared_preferences" target="_blank" rel="noopener">shared_preferences</a></li>
+        <li><a href="https://pub.dev/packages/package_info_plus" target="_blank" rel="noopener">package_info_plus</a></li>
+      </ul>
+      <p>Third-party components are not automatically relicensed under AGPLv3. Their original license terms continue to apply to those components.</p>
+    </div>
+
+    <div class="card">
+      <h2>3. Source Code Availability</h2>
+      <p>If you receive this software as a build, hosted service, or redistributed version, the corresponding source code for the AGPL-covered parts must be made available under AGPLv3.</p>
+      <p>The preferred location for source code publication should be the project's public repository or another clearly accessible download location provided to users.</p>
+    </div>
+
+    <div class="card">
+      <h2>4. Warranty Disclaimer</h2>
+      <p>This software is provided without any warranty, to the fullest extent permitted by AGPLv3 and applicable law, including without implied warranties of merchantability or fitness for a particular purpose.</p>
+    </div>
+
+    <div class="card">
+      <h2>5. Priority of License Texts</h2>
+      <p>If this page conflicts with the full text of AGPLv3 or any upstream dependency license, the applicable original license text controls.</p>
+    </div>
+
+    <div class="footer">
+      <div class="footer-shell">
+        <div class="footer-brand">
+          <p class="footer-logo">MyOpen Recurring</p>
+          <p class="footer-tagline">A privacy-first tool for subscriptions, bills, and recurring costs.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html">Product</a></li>
+          <li><a href="privacy-policy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="licenses.html">Licenses</a></li>
+          <li><a href="mailto:support@myopen.app">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 MyOpen Apps</p>
+    </div>
+  </div>
+</body>
+</html>
