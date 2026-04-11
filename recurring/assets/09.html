@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy by Design - iOS App Screen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 min-h-screen flex items-center justify-center p-4">
+
+    <!-- 模擬手機容器 -->
+    <div class="w-full max-w-[375px] h-[812px] bg-gradient-to-b from-[#0a192f] via-[#051125] to-[#020817] rounded-[3.5rem] shadow-2xl overflow-hidden flex flex-col items-center px-8 py-12 relative border border-white/5">
+        
+        <!-- 頂部劉海裝飾 -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl z-50"></div>
+
+        <!-- 標題區域 -->
+        <div class="text-center mt-10 space-y-4">
+            <p class="text-[#10b981] font-bold text-xs tracking-[0.2em] uppercase">
+                Privacy
+            </p>
+            <h1 class="text-white text-4xl font-semibold tracking-tight leading-tight">
+                Private<br />by Design
+            </h1>
+            <p class="text-slate-400 text-[15px] leading-relaxed px-4">
+                No account. No tracking.<br />
+                Your data stays on your device.
+            </p>
+        </div>
+
+        <!-- 中央插圖區域 -->
+        <div class="relative flex-1 flex items-center justify-center w-full my-6">
+            <!-- 背景光暈效果 -->
+            <div class="absolute w-56 h-56 bg-emerald-500/10 rounded-full blur-[70px]"></div>
+            
+            <div class="relative z-10">
+                <!-- 盾牌 SVG -->
+                <svg width="180" height="220" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M80 10L140 35V90C140 135 115 175 80 190C45 175 20 135 20 90V35L80 10Z" stroke="#1e3a8a" stroke-width="2" fill="rgba(30, 58, 138, 0.2)"/>
+                    <path d="M80 20L130 42V85C130 125 108 160 80 175C52 160 30 125 30 85V42L80 20Z" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 4"/>
+                </svg>
+                
+                <!-- 中央鎖頭 -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="bg-emerald-500 p-4 rounded-2xl shadow-[0_0_35px_rgba(16,185,129,0.6)]">
+                        <!-- Lock Icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#051125" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                </div>
+                
+                <!-- 裝飾小點 -->
+                <div class="absolute top-12 right-2 w-2 h-2 bg-emerald-400/40 rounded-full"></div>
+                <div class="absolute bottom-12 left-6 w-1.5 h-1.5 bg-blue-400/40 rounded-full"></div>
+                <div class="absolute top-1/2 -left-6 w-2 h-2 bg-emerald-500/20 rounded-full blur-[1px]"></div>
+            </div>
+        </div>
+
+        <!-- 特色列表區域 -->
+        <div class="w-full space-y-4 mb-6">
+            
+            <!-- 特色 1 -->
+            <div class="glass-card rounded-2xl p-4 flex items-center gap-4 transition-all active:scale-95">
+                <div class="bg-blue-900/30 p-2.5 rounded-xl border border-blue-500/20 flex items-center justify-center">
+                    <!-- User Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold text-[15px]">No Account Required</h3>
+                    <p class="text-slate-500 text-[13px]">Start instantly, no sign-up needed</p>
+                </div>
+            </div>
+
+            <!-- 特色 2 -->
+            <div class="glass-card rounded-2xl p-4 flex items-center gap-4 transition-all active:scale-95">
+                <div class="bg-emerald-900/30 p-2.5 rounded-xl border border-emerald-500/20 flex items-center justify-center">
+                    <!-- Shield Check Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold text-[15px]">Zero Tracking</h3>
+                    <p class="text-slate-500 text-[13px]">No analytics, no ads, no data collection</p>
+                </div>
+            </div>
+
+            <!-- 特色 3 -->
+            <div class="glass-card rounded-2xl p-4 flex items-center gap-4 transition-all active:scale-95">
+                <div class="bg-blue-900/30 p-2.5 rounded-xl border border-blue-500/20 flex items-center justify-center">
+                    <!-- Lock Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold text-[15px]">On-Device Only</h3>
+                    <p class="text-slate-500 text-[13px]">Your data never leaves your iPhone</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 底部 Home Indicator -->
+        <div class="w-36 h-1.5 bg-white/20 rounded-full mt-auto mb-2"></div>
+    </div>
+
+</body>
+</html>
