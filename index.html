@@ -2,815 +2,845 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyOpen Apps</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-    rel="stylesheet">
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --bg: #0F172A;
-      --bg-card: #151f35;
-      --bg-card-hover: #1a2640;
-      --text: #F8FAFC;
-      --text-muted: #b8c8d8;
-      --text-dim: #7a90a8;
-      --accent: #38bdf8;
-      --accent-dim: rgba(56, 189, 248, 0.12);
-      --border: rgba(248, 250, 252, 0.07);
-      --border-hover: rgba(248, 250, 252, 0.14);
-      --radius: 12px;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    /* Subtle noise texture overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.4;
-    }
-
-    /* ── Layout ── */
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 28px;
-      position: relative;
-      z-index: 1;
-    }
-
-    section {
-      padding: 96px 0;
-    }
-
-    /* ── Nav ── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 20px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text);
-      letter-spacing: 0.02em;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    /* ── Hero ── */
-    #hero {
-      padding-top: 180px;
-      padding-bottom: 96px;
-    }
-
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 1px;
-      background: var(--accent);
-      opacity: 0.7;
-    }
-
-    h1 {
-      font-size: clamp(36px, 6vw, 54px);
-      font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-      color: var(--text);
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      color: var(--text-muted);
-      font-weight: 300;
-      max-width: 480px;
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-
-    .hero-note {
-      font-size: 14px;
-      color: var(--text-dim);
-      font-weight: 300;
-      line-height: 1.7;
-      max-width: 420px;
-    }
-
-    /* ── Section headings ── */
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 56px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── Apps ── */
-    #apps {
-      border-top: 1px solid var(--border);
-    }
-
-    .apps-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .app-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 36px 40px;
-      transition: background 0.25s, border-color 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .app-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.18), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .app-card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-hover);
-    }
-
-    .app-card:hover::before {
-      opacity: 1;
-    }
-
-    .app-card+.app-card {
-      margin-top: 12px;
-    }
-
-    .app-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .app-name {
-      font-size: 17px;
-      font-weight: 500;
-      letter-spacing: -0.015em;
-      color: var(--text);
-    }
-
-    .app-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text);
-      text-decoration: none;
-      padding: 4px 0;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s, border-color 0.2s, transform 0.2s;
-    }
-
-    .app-link::after {
-      content: "->";
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--accent);
-      opacity: 0.9;
-    }
-
-    .app-link:hover {
-      color: #ffffff;
-      border-color: rgba(56, 189, 248, 0.45);
-      transform: translateX(2px);
-    }
-
-    .app-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--accent);
-      background: var(--accent-dim);
-      padding: 3px 9px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-      white-space: nowrap;
-      margin-top: 2px;
-    }
-
-    .app-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-
-    .app-desc strong {
-      display: block;
-      color: var(--text);
-      font-weight: 400;
-      margin-bottom: 6px;
-    }
-
-    .app-buttons {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      padding: 7px 14px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: all 0.2s;
-      border: 1px solid transparent;
-    }
-
-    .btn-store {
-      background: rgba(248, 250, 252, 0.06);
-      border-color: var(--border);
-      color: var(--text-muted);
-    }
-
-    .btn-store:hover {
-      background: rgba(248, 250, 252, 0.1);
-      border-color: var(--border-hover);
-      color: var(--text);
-    }
-
-    .btn-github {
-      background: transparent;
-      border-color: var(--border);
-      color: var(--text-dim);
-    }
-
-    .btn-github:hover {
-      border-color: rgba(56, 189, 248, 0.3);
-      color: var(--accent);
-    }
-
-    .btn-soon {
-      cursor: not-allowed;
-      opacity: 0.82;
-      position: relative;
-    }
-
-    .btn-soon:hover {
-      transform: none;
-    }
-
-    .btn-soon::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 50%;
-      bottom: calc(100% + 10px);
-      transform: translateX(-50%) translateY(4px);
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      box-shadow: 0 12px 28px rgba(2, 8, 23, 0.38);
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      white-space: nowrap;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.18s ease, transform 0.18s ease;
-    }
-
-    .btn-soon::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: calc(100% + 4px);
-      width: 8px;
-      height: 8px;
-      background: rgba(15, 23, 42, 0.96);
-      border-right: 1px solid rgba(56, 189, 248, 0.2);
-      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
-      transform: translateX(-50%) rotate(45deg);
-      opacity: 0;
-      transition: opacity 0.18s ease, transform 0.18s ease;
-      pointer-events: none;
-    }
-
-    .btn-soon:hover::after,
-    .btn-soon:hover::before,
-    .btn-soon:focus-visible::after,
-    .btn-soon:focus-visible::before {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 24px;
-      transform: translateX(-50%) translateY(16px);
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(56, 189, 248, 0.22);
-      box-shadow: 0 18px 40px rgba(2, 8, 23, 0.38);
-      color: var(--text);
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      z-index: 200;
-    }
-
-    .toast.is-visible {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    /* ── Philosophy ── */
-    #philosophy {
-      border-top: 1px solid var(--border);
-    }
-
-    .philosophy-body {
-      max-width: 560px;
-    }
-
-    .philosophy-intro {
-      font-size: 16px;
-      color: var(--text-muted);
-      margin-bottom: 40px;
-      line-height: 1.75;
-    }
-
-    .philosophy-pillars {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-bottom: 48px;
-      border-left: 1px solid var(--border);
-      padding-left: 28px;
-    }
-
-    .pillar {
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      padding: 6px 0;
-    }
-
-    .philosophy-text {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.85;
-    }
-
-    .philosophy-text p {
-      margin-bottom: 16px;
-    }
-
-    .philosophy-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    .philosophy-text ul {
-      padding-left: 20px;
-      margin-top: 8px;
-    }
-
-    .philosophy-text li {
-      margin-bottom: 4px;
-    }
-
-    .philosophy-highlight {
-      color: var(--text);
-      font-weight: 400;
-    }
-
-    /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 56px 0 48px;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 40px;
-      margin-bottom: 48px;
-    }
-
-    .footer-brand {
-      flex: 1;
-    }
-
-    .footer-logo {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
-    .footer-tagline {
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.65;
-      max-width: 240px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      padding-top: 2px;
-    }
-
-    .footer-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--text-dim);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--text-muted);
-    }
-
-    .footer-copy {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 0.04em;
-      opacity: 0.65;
-    }
-
-    /* ── Icon SVGs inline ── */
-    .icon {
-      width: 13px;
-      height: 13px;
-      opacity: 0.7;
-      flex-shrink: 0;
-    }
-
-    /* ── Divider dot ── */
-    .dot {
-      display: inline-block;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--text-dim);
-      margin: 0 10px;
-      vertical-align: middle;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
-      nav {
-        padding: 16px 20px;
-      }
-
-      .container {
-        padding: 0 20px;
-      }
-
-      #hero {
-        padding-top: 140px;
-      }
-
-      .app-card {
-        padding: 28px 24px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 28px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyOpen Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0F172A;
+            --bg-card: #151f35;
+            --bg-card-hover: #1a2640;
+            --text: #F8FAFC;
+            --text-muted: #b8c8d8;
+            --text-dim: #7a90a8;
+            --accent: #38bdf8;
+            --accent-dim: rgba(56, 189, 248, 0.12);
+            --border: rgba(248, 250, 252, 0.07);
+            --border-hover: rgba(248, 250, 252, 0.14);
+            --radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Subtle noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        /* ── Layout ── */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            padding: 96px 0;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text);
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* ── Hero ── */
+        #hero {
+            padding-top: 180px;
+            padding-bottom: 96px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.7;
+        }
+
+        h1 {
+            font-size: clamp(36px, 6vw, 54px);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 480px;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+
+        .hero-note {
+            font-size: 14px;
+            color: var(--text-dim);
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 420px;
+        }
+
+        /* ── Section headings ── */
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--text-dim);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 56px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── Apps ── */
+        #apps {
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Filter bar ── */
+        .filter-bar {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text-muted);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-dim);
+            border-color: rgba(56, 189, 248, 0.3);
+            color: var(--accent);
+        }
+
+        .apps-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .app-card.hidden {
+            display: none;
+        }
+
+        .app-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 36px 40px;
+            transition: background 0.25s, border-color 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.18), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .app-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+        }
+
+        .app-card:hover::before {
+            opacity: 1;
+        }
+
+        .app-card+.app-card {
+            margin-top: 12px;
+        }
+
+        .app-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .app-name {
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            color: var(--text);
+        }
+
+        .app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            text-decoration: none;
+            padding: 4px 0;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s, transform 0.2s;
+        }
+
+        .app-link::after {
+            content: "->";
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            color: var(--accent);
+            opacity: 0.9;
+        }
+
+        .app-link:hover {
+            color: #ffffff;
+            border-color: rgba(56, 189, 248, 0.45);
+            transform: translateX(2px);
+        }
+
+        .app-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 3px 9px;
+            border-radius: 4px;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+            margin-top: 2px;
+        }
+
+        .app-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .app-desc strong {
+            display: block;
+            color: var(--text);
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            padding: 7px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-store {
+            background: rgba(248, 250, 252, 0.06);
+            border-color: var(--border);
+            color: var(--text-muted);
+        }
+
+        .btn-store:hover {
+            background: rgba(248, 250, 252, 0.1);
+            border-color: var(--border-hover);
+            color: var(--text);
+        }
+
+        .btn-github {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-dim);
+        }
+
+        .btn-github:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            color: var(--accent);
+        }
+
+        .btn-soon {
+            cursor: not-allowed;
+            opacity: 0.82;
+            position: relative;
+        }
+
+        .btn-soon:hover {
+            transform: none;
+        }
+
+        .btn-soon::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 10px);
+            transform: translateX(-50%) translateY(4px);
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            box-shadow: 0 12px 28px rgba(2, 8, 23, 0.38);
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.18s ease, transform 0.18s ease;
+        }
+
+        .btn-soon::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 4px);
+            width: 8px;
+            height: 8px;
+            background: rgba(15, 23, 42, 0.96);
+            border-right: 1px solid rgba(56, 189, 248, 0.2);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            transform: translateX(-50%) rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            pointer-events: none;
+        }
+
+        .btn-soon:hover::after,
+        .btn-soon:hover::before,
+        .btn-soon:focus-visible::after,
+        .btn-soon:focus-visible::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%) translateY(16px);
+            padding: 12px 16px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(56, 189, 248, 0.22);
+            box-shadow: 0 18px 40px rgba(2, 8, 23, 0.38);
+            color: var(--text);
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 200;
+        }
+
+        .toast.is-visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ── Principles ── */
+        #principles {
+            border-top: 1px solid var(--border);
+        }
+
+        .principles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 560px;
+        }
+
+        .principle-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .principle-title {
+            font-size: 19px;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: -0.015em;
+        }
+
+        .principle-desc {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 56px 0 48px;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand {
+            flex: 1;
+        }
+
+        .footer-logo {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.65;
+            max-width: 240px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            padding-top: 2px;
+        }
+
+        .footer-links a {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            color: var(--text-dim);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-muted);
+        }
+
+        .footer-copy {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--text-dim);
+            letter-spacing: 0.04em;
+            opacity: 0.65;
+        }
+
+        /* ── Icon SVGs inline ── */
+        .icon {
+            width: 13px;
+            height: 13px;
+            opacity: 0.7;
+            flex-shrink: 0;
+        }
+
+        /* ── Divider dot ── */
+        .dot {
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--text-dim);
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            #hero {
+                padding-top: 140px;
+            }
+
+            .app-card {
+                padding: 28px 24px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- Nav -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">myopen.app</a>
-      <ul class="nav-links">
-        <li><a href="#apps">Apps</a></li>
-        <li><a href="#philosophy">Philosophy</a></li>
-        <li><a href="https://github.com" target="_blank">GitHub</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section id="hero">
-    <div class="container">
-      <h1>MyOpen Apps</h1>
-      <p class="hero-sub">Simple, privacy-first apps.</p>
-      <p class="hero-note">Small tools designed to solve everyday problems.<br>No enforced accounts. No tracking. Just
-        useful
-        apps.</p>
-    </div>
-  </section>
-
-  <!-- Apps -->
-  <section id="apps">
-    <div class="container">
-      <p class="section-label">Apps</p>
-
-      <div class="apps-grid">
-
-        <!-- MyOpen Recurring -->
-        <div class="app-card">
-          <div class="app-header">
-            <a href="recurring/" class="app-name app-link">Recurring</a>
-            <span class="app-tag">Utility</span>
-          </div>
-          <div class="app-desc">
-            <strong>Track and manage recurring expenses and subscriptions.</strong>
-            Stay aware of what you pay each month, year, or billing cycle.
-            Designed to be simple, clear, and private.
-          </div>
-          <div class="app-buttons">
-            <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true" data-tooltip="Coming soon" title="Coming soon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
-                <path d="M8 12l2 2 4-4" />
-              </svg>
-              App Store
-            </a>
-            <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true" data-tooltip="Coming soon" title="Coming soon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M5 3l14 9-14 9V3z" />
-              </svg>
-              Google Play
-            </a>
-            <a href="javascript:void(0)" class="btn btn-github btn-soon" aria-disabled="true" data-tooltip="Coming soon" title="Coming soon">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-              </svg>
-              GitHub
-            </a>
-          </div>
+    <!-- Nav -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">myopen.app</a>
+            <ul class="nav-links">
+                <li><a href="#apps">Apps</a></li>
+                <li><a href="#principles">Principles</a></li>
+                <li><a href="https://github.com" target="_blank">GitHub</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- MyOpen Water -->
-        <div class="app-card">
-          <div class="app-header">
-            <span class="app-name">Water</span>
-            <span class="app-tag">Health</span>
-          </div>
-          <div class="app-desc">
-            <strong>A minimalist water tracker.</strong>
-            Stay hydrated with a simple daily log.
-            No accounts, no distractions.
-          </div>
-          <div class="app-buttons">
-            <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true" data-tooltip="Coming soon" title="Coming soon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
-                <path d="M8 12l2 2 4-4" />
-              </svg>
-              App Store
-            </a>
-            <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true" data-tooltip="Coming soon" title="Coming soon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M5 3l14 9-14 9V3z" />
-              </svg>
-              Google Play
-            </a>
-            <a href="javascript:void(0)" class="btn btn-github btn-soon" aria-disabled="true" data-tooltip="Coming soon" title="Coming soon">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-              </svg>
-              GitHub
-            </a>
-          </div>
+    <!-- Hero -->
+    <section id="hero">
+        <div class="container">
+            <h1>Building what I need.</h1>
+            <p class="hero-sub">Made in the gaps between life, until 2050.</p>
+            <p class="hero-note">Cross-platform apps, vibe coded with AI — just one person.</p>
         </div>
+    </section>
 
-        <!-- FlipMind -->
-        <div class="app-card">
-          <div class="app-header">
-            <span class="app-name">FlipMind</span>
-            <span class="app-tag">Game</span>
-          </div>
-          <div class="app-desc">
-            <strong>A simple puzzle game to train your brain.</strong>
-            Quick challenges designed for short breaks.
-          </div>
-          <div class="app-buttons">
-            <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true" data-tooltip="Coming soon" title="Coming soon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
-                <path d="M8 12l2 2 4-4" />
-              </svg>
-              App Store
-            </a>
-            <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true" data-tooltip="Coming soon" title="Coming soon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M5 3l14 9-14 9V3z" />
-              </svg>
-              Google Play
-            </a>
-            <a href="javascript:void(0)" class="btn btn-github btn-soon" aria-disabled="true" data-tooltip="Coming soon" title="Coming soon">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-              </svg>
-              GitHub
-            </a>
-          </div>
+    <!-- Apps -->
+    <section id="apps">
+        <div class="container">
+            <p class="section-label">Apps</p>
+
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Utility">Utility</button>
+                <button class="filter-btn" data-filter="Game">Game</button>
+            </div>
+
+            <div class="apps-grid">
+
+                <!-- Recurring Expenses -->
+                <div class="app-card" data-category="Utility">
+                    <div class="app-header">
+                        <a href="recurring/" class="app-name app-link">Recurring Expenses</a>
+                        <span class="app-tag">Utility</span>
+                    </div>
+                    <div class="app-desc">
+                        <strong>Track and manage recurring expenses and subscriptions.</strong>
+                        Stay aware of what you pay each month, year, or billing cycle.
+                        Designed to be simple, clear, and private.
+                    </div>
+                    <div class="app-buttons">
+                        <a href="https://apps.apple.com/tw/app/recurring-expenses/id6760692959" class="btn btn-store"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
+                                <path d="M8 12l2 2 4-4" />
+                            </svg>
+                            App Store
+                        </a>
+                        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true"
+                            data-tooltip="Coming soon" title="Coming soon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M5 3l14 9-14 9V3z" />
+                            </svg>
+                            Google Play
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mahjong Now -->
+                <div class="app-card" data-category="Game">
+                    <div class="app-header">
+                        <span class="app-name">Mahjong Now</span>
+                        <span class="app-tag">Game</span>
+                    </div>
+                    <div class="app-desc">
+                        <strong>A minimalist mahjong companion.</strong>
+                        Traditional gameplay meets modern AI assistance.
+                        No accounts, no tracking. Just pure mahjong.
+                    </div>
+                    <div class="app-buttons">
+                        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true"
+                            data-tooltip="Coming soon" title="Coming soon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
+                                <path d="M8 12l2 2 4-4" />
+                            </svg>
+                            App Store
+                        </a>
+                        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true"
+                            data-tooltip="Coming soon" title="Coming soon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M5 3l14 9-14 9V3z" />
+                            </svg>
+                            Google Play
+                        </a>
+                        <!-- <a href="javascript:void(0)" class="btn btn-github btn-soon" aria-disabled="true"
+                            data-tooltip="Coming soon" title="Coming soon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                            </svg>
+                            GitHub
+                        </a> -->
+                    </div>
+                </div>
+
+                <!-- FlipMind -->
+                <div class="app-card" data-category="Game">
+                    <div class="app-header">
+                        <span class="app-name">FlipMind</span>
+                        <span class="app-tag">Game</span>
+                    </div>
+                    <div class="app-desc">
+                        <strong>A simple puzzle game to train your brain.</strong>
+                        Quick challenges designed for short breaks.
+                    </div>
+                    <div class="app-buttons">
+                        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true"
+                            data-tooltip="Coming soon" title="Coming soon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
+                                <path d="M8 12l2 2 4-4" />
+                            </svg>
+                            App Store
+                        </a>
+                        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true"
+                            data-tooltip="Coming soon" title="Coming soon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M5 3l14 9-14 9V3z" />
+                            </svg>
+                            Google Play
+                        </a>
+                        <a href="javascript:void(0)" class="btn btn-github btn-soon" aria-disabled="true"
+                            data-tooltip="Coming soon" title="Coming soon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- Philosophy -->
-  <section id="philosophy">
-    <div class="container">
-      <p class="section-label">Philosophy</p>
-      <div class="philosophy-body">
-        <p class="philosophy-intro">MyOpen Apps are small tools built with a simple philosophy.</p>
-
-        <div class="philosophy-pillars">
-          <span class="pillar">Keep things lightweight.</span>
-          <span class="pillar">Respect user privacy.</span>
-          <span class="pillar">Solve real problems.</span>
+    <!-- Principles -->
+    <section id="principles">
+        <div class="container">
+            <p class="section-label">Principles</p>
+            <div class="principles-list">
+                <div class="principle-item">
+                    <h3 class="principle-title">Transparent</h3>
+                    <p class="principle-desc">Every app tells you exactly what it collects and why. No surprises, no
+                        fine print.</p>
+                </div>
+                <div class="principle-item">
+                    <h3 class="principle-title">Minimal</h3>
+                    <p class="principle-desc">Only what the feature needs. Nothing more. Your data isn't a side
+                        business.</p>
+                </div>
+                <div class="principle-item">
+                    <h3 class="principle-title">Honest</h3>
+                    <p class="principle-desc">Ads, pricing, open source — always stated upfront. Each app, its own page.
+                    </p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="philosophy-text">
-          <p>Most apps today are designed around accounts, tracking, and data collection. MyOpen Apps take a different
-            approach.</p>
-          <ul>
-            <li><span class="philosophy-highlight">Your data stays on your device by default.</span></li>
-            <li>Accounts are strictly optional — log in only if you need cross-device sync.</li>
-            <li>And parts of the code are open source.</li>
-          </ul>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <p class="footer-logo">myopen.app</p>
+                    <p class="footer-tagline">Transparent. Minimal. Honest.</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/ry2050" target="_blank">GitHub</a></li>
+                    <li><a href="mailto:support@myopen.app">Contact</a></li>
+                </ul>
+            </div>
+            <p class="footer-copy">© 2026 MyOpen Apps</p>
         </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <p class="footer-logo">MyOpen Apps</p>
-          <p class="footer-tagline">Privacy-first tools for everyday life.</p>
-        </div>
-        <ul class="footer-links">
-          <li><a href="https://github.com/ry2050" target="_blank">GitHub</a></li>
-          <li><a href="mailto:support@myopen.app">Contact</a></li>
-        </ul>
-      </div>
-      <p class="footer-copy">© 2026 MyOpen Apps</p>
-    </div>
-  </footer>
+    <div class="toast" id="coming-soon-toast" aria-live="polite" aria-atomic="true">Coming soon</div>
 
-  <div class="toast" id="coming-soon-toast" aria-live="polite" aria-atomic="true">Coming soon</div>
+    <script>
+        // Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const appCards = document.querySelectorAll('.app-card');
 
-  <script>
-    (() => {
-      const buttons = document.querySelectorAll('.btn-soon');
-      const toast = document.getElementById('coming-soon-toast');
-      let toastTimer;
-
-      if (!buttons.length || !toast) return;
-
-      const showToast = (message) => {
-        toast.textContent = message;
-        toast.classList.add('is-visible');
-        window.clearTimeout(toastTimer);
-        toastTimer = window.setTimeout(() => {
-          toast.classList.remove('is-visible');
-        }, 1800);
-      };
-
-      buttons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-          event.preventDefault();
-          showToast(button.dataset.tooltip || 'Coming soon');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                appCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
         });
-      });
-    })();
-  </script>
+
+        // Coming soon toast
+        (() => {
+            const buttons = document.querySelectorAll('.btn-soon');
+            const toast = document.getElementById('coming-soon-toast');
+            let toastTimer;
+
+            if (!buttons.length || !toast) return;
+
+            const showToast = (message) => {
+                toast.textContent = message;
+                toast.classList.add('is-visible');
+                window.clearTimeout(toastTimer);
+                toastTimer = window.setTimeout(() => {
+                    toast.classList.remove('is-visible');
+                }, 1800);
+            };
+
+            buttons.forEach((button) => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    showToast(button.dataset.tooltip || 'Coming soon');
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>

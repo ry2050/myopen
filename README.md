@@ -1,29 +1,15 @@
-# MyOpen App 
+# myopen.app — Building what I need.
 
-This repository is for building small, educational app projects
-as part of the **MyOpen App Series**.
-
-It is designed for projects created under:
-
-- 🎥 **Build Apps with AI**
-- 🚀 **CodeTo2050**
-- 🌐 https://www.myopen.app
-- YT https://www.youtube.com/@CodeTo2050
+Made in the gaps between life, until 2050.  
+Cross-platform apps, vibe coded with AI — just one person.
 
 ---
 
-## How to use these apps
+## Principles
 
-- Clone it! Build it!
-- Start playing with your app 🎉
-
----
-
-## Included by default
-
-- MIT License (educational-friendly)
-- Educational Use Notice
-- Consistent author and branding
+- **Transparent**: Every app tells you exactly what it collects and why. No surprises, no fine print.
+- **Minimal**: Only what the feature needs. Nothing more. Your data isn't a side business.
+- **Honest**: Ads, pricing, open source — always stated upfront. Each app, its own page.
 
 ---
 
