@@ -109,7 +109,39 @@ h1 {
   color: var(--text);
 }
 
+/* Coming Soon State */
+.coming-soon-content {
+  display: none;
+  padding: 100px 20px;
+  text-align: center;
+  border-radius: 24px;
+  background: rgba(248, 250, 252, 0.02);
+  border: 1px dashed var(--border);
+  margin-top: 20px;
+}
 
+.is-coming-soon .container > *:not(.section-label):not(.coming-soon-content) {
+  display: none;
+}
+
+.is-coming-soon .coming-soon-content {
+  display: block;
+}
+
+.coming-soon-content h2 {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.coming-soon-content p {
+  color: var(--text-dim);
+  font-size: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
 
 .screenshots-head {
   display: flex;
@@ -305,7 +337,6 @@ h1 {
 }
 
 @media (max-width: 900px) {
-
   .feature-grid,
   .legal-grid {
     grid-template-columns: 1fr;
