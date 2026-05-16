@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlipMind - MyOpen Series</title>
+  <meta name="description"
+    content="FlipMind is a privacy-first memory matching game with colors, icons, and your own photos. Open source. No ads. No tracking." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/common.css">
+  <link rel="stylesheet" href="../assets/product.css">
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">myopen.app</a>
+      <ul class="nav-links">
+        <li><a href="#preview">Preview</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#legal">Legal</a></li>
+        <li><a href="../">All Apps</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Game · Memory</p>
+      <h1>FlipMind</h1>
+      <p class="hero-sub">A beautiful memory matching game with colors, icons, and your own photos — designed for
+        focus, learning, and play.</p>
+      <p class="hero-note">Open source. No ads. No tracking. All data stays on your device.</p>
+      <div class="hero-actions">
+        <a href="#preview" class="btn btn-store">App Preview</a>
+        <a href="privacy.html" class="btn btn-legal">Privacy Policy</a>
+        <a href="terms.html" class="btn btn-github">Terms of Service</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="preview">
+    <div class="container">
+      <p class="section-label">Preview</p>
+      <div class="screenshots-head">
+        <h2 class="screenshots-title">Browse the app like an App Store gallery.</h2>
+        <p class="screenshots-note">Swipe or scroll sideways to browse all screens.</p>
+      </div>
+
+      <!--
+        TODO: 截圖檔案 (assets/01.jpg ~ 09.jpg) 目前仍是從 recurring 專案複製過來的舊內容。
+        正式上線前請拍攝 FlipMind 的實際截圖替換,例如:
+          01.jpg - 主畫面 (卡牌類型選擇)
+          02.jpg - 卡牌數量選擇
+          03.jpg - 顏色配對遊戲畫面
+          04.jpg - 圖示配對遊戲畫面
+          05.jpg - 照片配對遊戲畫面
+          06.jpg - 主題編輯器 (長按進入)
+          07.jpg - 卡片詳細編輯 (含發音標籤)
+          08.jpg - 翻牌動畫
+          09.jpg - 完成對話框 (時間/翻牌次數/配對數)
+        每張建議至少 1290×2796 (iPhone 6.7") 或對應裝置尺寸。
+      -->
+
+      <div class="screenshot-rail" aria-label="FlipMind screenshots">
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/01.jpg" alt="FlipMind home screen — choose card type" /></div>
+            <figcaption><span class="shot-title">Choose Your Card Type</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/02.jpg" alt="Pick the number of cards" /></div>
+            <figcaption><span class="shot-title">8 to 28 Cards</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/03.jpg" alt="Color matching game" /></div>
+            <figcaption><span class="shot-title">Color Matching</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/04.jpg" alt="Icon matching game" /></div>
+            <figcaption><span class="shot-title">Icon Matching</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/05.jpg" alt="Photo matching with your own pictures" /></div>
+            <figcaption><span class="shot-title">Your Own Photos</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/06.jpg" alt="Theme editor — long press to customize" /></div>
+            <figcaption><span class="shot-title">Customize Every Card</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/07.jpg" alt="Card detail editor with pronunciation label" /></div>
+            <figcaption><span class="shot-title">Pronunciation Labels</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/08.jpg" alt="Smooth flip animation" /></div>
+            <figcaption><span class="shot-title">Smooth Flip Animation</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/09.jpg" alt="Completion dialog with stats" /></div>
+            <figcaption><span class="shot-title">Track Your Time &amp; Moves</span></figcaption>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <p class="section-label">Features</p>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Three Ways to Play</h3>
+          <ul class="feature-list">
+            <li>Color matching — bright, high-contrast cards</li>
+            <li>Icon matching — Material symbols across 25+ everyday concepts</li>
+            <li>Photo matching — use your own pictures from the album</li>
+            <li>Six difficulty levels: 8, 12, 16, 20, 24, or 28 cards</li>
+            <li>Customizable themes — long-press any card type to edit</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Built for Memory &amp; Learning</h3>
+          <ul class="feature-list">
+            <li>Smooth 3D flip animation</li>
+            <li>Track completion time and number of moves</li>
+            <li>Per-card pronunciation labels with system Text-to-Speech</li>
+            <li>Square-cropped photos optimized for the card layout</li>
+            <li>Multi-language interface (8 supported languages)</li>
+            <li>Tactile feedback for flip, match, mismatch, and win</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Privacy First</h3>
+          <ul class="feature-list">
+            <li>No account required</li>
+            <li>No ads, no analytics, no tracking</li>
+            <li>Photos and settings stay on your device</li>
+            <li>Open source under GPLv3 — audit the code yourself</li>
+            <li>Designed for parents who want safe play for kids</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="legal">
+    <div class="container">
+      <p class="section-label">Legal</p>
+      <div class="legal-grid">
+        <article class="legal-card">
+          <h3>Privacy Policy</h3>
+          <p>FlipMind does not collect or transmit any personal data. Read the full policy for details on permissions
+            and future changes.</p>
+          <div class="legal-actions">
+            <a href="privacy.html" class="btn btn-legal">Privacy Policy</a>
+          </div>
+        </article>
+
+        <article class="legal-card">
+          <h3>Terms of Service</h3>
+          <p>Review the service terms, disclaimers, acceptable use, and other conditions that apply to the app.</p>
+          <div class="legal-actions">
+            <a href="terms.html" class="btn btn-legal">Terms of Service</a>
+          </div>
+        </article>
+
+        <article class="legal-card">
+          <h3>Licenses</h3>
+          <p>FlipMind is open source under GPLv3. See the license notice and third-party open-source attributions.</p>
+          <div class="legal-actions">
+            <a href="licenses.html" class="btn btn-legal">Open Licenses</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="container">
+      <p class="section-label">Support the Project</p>
+      <div class="pro-card">
+        <div class="pro-copy">
+          <h2>If FlipMind brought you a smile, consider supporting the project.</h2>
+          <p>FlipMind is built and maintained by one person, in the gaps between life. Your support keeps it ad-free,
+            tracking-free, and moving forward.</p>
+          <!--
+            TODO: 填入實際的外部贊助連結後再開啟此區塊。
+            候選平台:Buy Me a Coffee / Ko-fi / GitHub Sponsors / PayPal.me。
+            v1.0 期間,贊助按鈕只放在網站,不放在 App 內(避開 Apple 3.1.1)。
+            v1.1 起 App 內會提供正式 Tip Jar(走 IAP)。
+          -->
+        </div>
+        <div class="hero-actions">
+          <!-- <a href="https://www.buymeacoffee.com/YOUR_HANDLE" class="btn btn-store" target="_blank" rel="noopener">Buy Me a Coffee</a> -->
+          <!-- <a href="https://github.com/sponsors/YOUR_HANDLE" class="btn btn-github" target="_blank" rel="noopener">GitHub Sponsors</a> -->
+          <a href="mailto:support@myopen.app" class="btn btn-legal">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">FlipMind</p>
+          <p class="footer-tagline">A privacy-first memory matching game. Open source. Made with care.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="../">All Apps</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="licenses.html">Licenses</a></li>
+          <li><a href="mailto:support@myopen.app">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 MyOpen Apps</p>
+    </div>
+  </footer>
+</body>
+
+</html>
