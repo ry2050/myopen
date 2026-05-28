@@ -5,10 +5,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyOpen Apps</title>
+    <!-- Apply saved theme before first paint to avoid a flash. -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('myopen-theme');
+                if (t === 'light' || t === 'dark') {
+                    document.documentElement.setAttribute('data-theme', t);
+                }
+            } catch (e) { /* localStorage unavailable */ }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Sans+TC:wght@400;500;600&display=swap"
         rel="stylesheet">
     <style>
         *,
@@ -19,18 +30,82 @@
             padding: 0;
         }
 
+        /* ── Light (Soft Paper) — default ────────────────────── */
         :root {
-            --bg: #F8FAFC;
-            --bg-card: #FFFFFF;
-            --bg-card-hover: #F1F5F9;
-            --text: #0F172A;
-            --text-muted: #475569;
-            --text-dim: #94A3B8;
-            --accent: #0284C7;
-            --accent-dim: rgba(2, 132, 199, 0.10);
-            --border: rgba(15, 23, 42, 0.08);
-            --border-hover: rgba(15, 23, 42, 0.16);
+            color-scheme: light dark;
+
+            --bg: #F6F2EA;
+            --bg-card: #FBF8F2;
+            --bg-card-hover: #F0EBE0;
+
+            --text: #1F1B16;
+            --text-muted: #5E574D;
+            --text-dim: #8B8276;
+
+            --accent: #0F766E;
+            --accent-dim: rgba(15, 118, 110, 0.10);
+            --accent-fg: #FBF8F2;
+
+            --border: rgba(31, 27, 22, 0.10);
+            --border-hover: rgba(31, 27, 22, 0.22);
+
+            --nav-bg: rgba(246, 242, 234, 0.86);
+            --noise-opacity: 0.25;
+            --popover-bg: #1F1B16;
+            --popover-fg: #FBF8F2;
+            --popover-border: rgba(255, 255, 255, 0.10);
+
             --radius: 12px;
+        }
+
+        /* ── Dark (Soft Slate) — auto via OS preference ──────── */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #1F2533;
+                --bg-card: #2A3142;
+                --bg-card-hover: #323A4E;
+
+                --text: #ECF1F8;
+                --text-muted: #A8B4C8;
+                --text-dim: #7A8699;
+
+                --accent: #7DD3FC;
+                --accent-dim: rgba(125, 211, 252, 0.14);
+                --accent-fg: #0B1220;
+
+                --border: rgba(236, 241, 248, 0.10);
+                --border-hover: rgba(236, 241, 248, 0.20);
+
+                --nav-bg: rgba(31, 37, 51, 0.85);
+                --noise-opacity: 0.4;
+                --popover-bg: #0B1220;
+                --popover-fg: #ECF1F8;
+                --popover-border: rgba(125, 211, 252, 0.22);
+            }
+        }
+
+        /* ── Manual override (theme toggle) ──────────────────── */
+        :root[data-theme="dark"] {
+            --bg: #1F2533;
+            --bg-card: #2A3142;
+            --bg-card-hover: #323A4E;
+
+            --text: #ECF1F8;
+            --text-muted: #A8B4C8;
+            --text-dim: #7A8699;
+
+            --accent: #7DD3FC;
+            --accent-dim: rgba(125, 211, 252, 0.14);
+            --accent-fg: #0B1220;
+
+            --border: rgba(236, 241, 248, 0.10);
+            --border-hover: rgba(236, 241, 248, 0.20);
+
+            --nav-bg: rgba(31, 37, 51, 0.85);
+            --noise-opacity: 0.4;
+            --popover-bg: #0B1220;
+            --popover-fg: #ECF1F8;
+            --popover-border: rgba(125, 211, 252, 0.22);
         }
 
         html {
@@ -40,11 +115,13 @@
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
+            font-family: 'DM Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
+            transition: background-color 0.25s ease, color 0.25s ease;
         }
 
         /* Subtle noise texture overlay */
@@ -55,7 +132,7 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 0;
-            opacity: 0.4;
+            opacity: var(--noise-opacity);
         }
 
         /* ── Layout ── */
@@ -82,7 +159,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(248, 250, 252, 0.90);
+            background: var(--nav-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
@@ -163,7 +240,7 @@
         .hero-sub {
             font-size: 18px;
             color: var(--text-muted);
-            font-weight: 300;
+            font-weight: 400;
             max-width: 480px;
             line-height: 1.65;
             margin-bottom: 20px;
@@ -172,7 +249,7 @@
         .hero-note {
             font-size: 14px;
             color: var(--text-dim);
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.7;
             max-width: 420px;
         }
@@ -367,13 +444,13 @@
         }
 
         .btn-store {
-            background: rgba(15, 23, 42, 0.04);
+            background: var(--bg-card);
             border-color: var(--border);
             color: var(--text-muted);
         }
 
         .btn-store:hover {
-            background: rgba(15, 23, 42, 0.08);
+            background: var(--bg-card-hover);
             border-color: var(--border-hover);
             color: var(--text);
         }
@@ -407,14 +484,14 @@
             transform: translateX(-50%) translateY(4px);
             padding: 6px 10px;
             border-radius: 999px;
-            background: rgba(15, 23, 42, 0.96);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            box-shadow: 0 12px 28px rgba(2, 8, 23, 0.38);
+            background: var(--popover-bg);
+            border: 1px solid var(--popover-border);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
             font-family: 'DM Mono', monospace;
             font-size: 11px;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: var(--accent);
+            color: var(--popover-fg);
             white-space: nowrap;
             pointer-events: none;
             opacity: 0;
@@ -428,9 +505,9 @@
             bottom: calc(100% + 4px);
             width: 8px;
             height: 8px;
-            background: rgba(15, 23, 42, 0.96);
-            border-right: 1px solid rgba(56, 189, 248, 0.2);
-            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            background: var(--popover-bg);
+            border-right: 1px solid var(--popover-border);
+            border-bottom: 1px solid var(--popover-border);
             transform: translateX(-50%) rotate(45deg);
             opacity: 0;
             transition: opacity 0.18s ease, transform 0.18s ease;
@@ -452,10 +529,10 @@
             transform: translateX(-50%) translateY(16px);
             padding: 12px 16px;
             border-radius: 999px;
-            background: rgba(15, 23, 42, 0.96);
-            border: 1px solid rgba(56, 189, 248, 0.22);
-            box-shadow: 0 18px 40px rgba(2, 8, 23, 0.38);
-            color: var(--text);
+            background: var(--popover-bg);
+            border: 1px solid var(--popover-border);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+            color: var(--popover-fg);
             font-family: 'DM Mono', monospace;
             font-size: 11px;
             letter-spacing: 0.06em;
@@ -582,6 +659,39 @@
             vertical-align: middle;
         }
 
+        /* ── Theme toggle button ── */
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            margin-left: 6px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+            padding: 0;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+        }
+
+        .theme-toggle svg { width: 15px; height: 15px; display: block; }
+        .theme-toggle .icon-sun  { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        :root[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+        :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .theme-toggle .icon-sun  { display: block; }
+            :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+        }
+
         /* ── Responsive ── */
         @media (max-width: 600px) {
             nav {
@@ -617,6 +727,17 @@
             <ul class="nav-links">
                 <li><a href="#apps">Apps</a></li>
                 <li><a href="#principles">Principles</a></li>
+                <li>
+                    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                        </svg>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -841,6 +962,7 @@
             });
         })();
     </script>
+    <script src="assets/theme.js"></script>
 </body>
 
 </html>
