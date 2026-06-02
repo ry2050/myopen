@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TacMoji · Tic Tac Toe - MyOpen Series</title>
+  <!-- Apply saved theme before first paint. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('myopen-theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta name="description"
+    content="TacMoji is a free tic-tac-toe game with 4 board sizes, smart AI, two-player face-off, and fully customizable emoji pieces. No ads, no tracking, open source." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Sans+TC:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/common.css">
+  <link rel="stylesheet" href="../assets/product.css">
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">myopen.app</a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#legal">Legal</a></li>
+        <li><a href="../">All Apps</a></li>
+        <li>
+          <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Game · Strategy</p>
+      <h1>TacMoji</h1>
+      <p class="hero-sub">The classic pencil-and-paper game, reimagined. Four board sizes, smart AI, two-player
+        face-off, and pieces that are anything you want.</p>
+      <p class="hero-note">Free forever. No ads. No tracking. Open source.</p>
+      <div class="hero-actions">
+        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true" data-tooltip="Coming soon"
+          title="Coming soon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
+            <path d="M8 12l2 2 4-4" />
+          </svg>
+          App Store
+        </a>
+        <a href="privacy-policy.html" class="btn btn-legal">Privacy Policy</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" class="btn btn-legal"
+          target="_blank" rel="noopener">Terms of Use</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <p class="section-label">Features</p>
+      <div class="feature-grid">
+
+        <article class="feature-card">
+          <h3>Four Boards</h3>
+          <ul class="feature-list">
+            <li>3×3 — The classic you know by heart</li>
+            <li>5×5 — More space, more tactics</li>
+            <li>7×7 — Epic match-ups that test your true skill</li>
+            <li>9×9 — The ultimate challenge for true masters</li>
+            <li>Win condition adjusts automatically per board size</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Two Ways to Play</h3>
+          <ul class="feature-list">
+            <li>vs CPU — real Minimax strategy with alpha-beta pruning</li>
+            <li>2 Players — face off on the same device, no passing needed</li>
+            <li>Opponent's pieces and labels auto-rotate 180° so both sides read clearly</li>
+            <li>No second screen, no account, no setup</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Your Pieces, Your Style</h3>
+          <ul class="feature-list">
+            <li>Any emoji 🐱🚀⭐🦊🎸🍕 — play as literally anything you love</li>
+            <li>Classic shapes ●■▲★ — clean and bold</li>
+            <li>Any letter A–Z — go with your initials</li>
+            <li>Each player picks their own symbol and color independently</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Honest to the Core</h3>
+          <ul class="feature-list">
+            <li>100% free — no trial periods, no locked features</li>
+            <li>Zero ads — not now, not ever</li>
+            <li>Open source — every line of code on GitHub</li>
+            <li>Optional tip jar — love the app? Buy us a coffee ☕</li>
+            <li>8 languages — EN, 繁中, 简中, 한국어, 日本語, DE, FR, ES</li>
+            <li>Light &amp; Dark mode that follows your system</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="legal">
+    <div class="container">
+      <p class="section-label">Legal</p>
+      <div class="legal-grid">
+
+        <article class="legal-card">
+          <h3>Privacy Policy</h3>
+          <p>TacMoji does not collect personal data. The optional Tip Jar is processed by Apple and RevenueCat.
+            Read the full policy for details.</p>
+          <div class="legal-actions">
+            <a href="privacy-policy.html" class="btn btn-legal">Privacy Policy</a>
+          </div>
+        </article>
+
+        <article class="legal-card">
+          <h3>Terms of Use</h3>
+          <p>TacMoji uses Apple's Standard End User License Agreement (EULA) as the terms of use.</p>
+          <div class="legal-actions">
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" class="btn btn-legal"
+              target="_blank" rel="noopener">Apple Standard EULA</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="container">
+      <p class="section-label">Support the Project</p>
+      <div class="pro-card">
+        <div class="pro-copy">
+          <h2>If TacMoji brought back a childhood smile, consider supporting the project.</h2>
+          <p>TacMoji is built and maintained by one person, in the gaps between life. Your support keeps it
+            ad-free, tracking-free, and moving forward.</p>
+        </div>
+        <div class="hero-actions">
+          <a href="mailto:support@myopen.app" class="btn btn-legal">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">TacMoji</p>
+          <p class="footer-tagline">Tic-tac-toe reimagined. Free forever, zero ads. Made with care.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="../">All Apps</a></li>
+          <li><a href="privacy-policy.html">Privacy</a></li>
+          <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank"
+              rel="noopener">Terms</a></li>
+          <li><a href="mailto:support@myopen.app">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 MyOpen Apps</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="coming-soon-toast" aria-live="polite" aria-atomic="true">Coming soon</div>
+  <script>
+    (() => {
+      const buttons = document.querySelectorAll('.btn-soon');
+      const toast = document.getElementById('coming-soon-toast');
+      let toastTimer;
+      if (!buttons.length || !toast) return;
+      const showToast = (message) => {
+        toast.textContent = message;
+        toast.classList.add('is-visible');
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => { toast.classList.remove('is-visible'); }, 1800);
+      };
+      buttons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+          event.preventDefault();
+          showToast(button.dataset.tooltip || 'Coming soon');
+        });
+      });
+    })();
+  </script>
+  <script src="../assets/theme.js"></script>
+</body>
+
+</html>
