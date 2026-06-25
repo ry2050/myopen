@@ -13,7 +13,7 @@
         if (t === 'light' || t === 'dark') {
           document.documentElement.setAttribute('data-theme', t);
         }
-      } catch (e) {}
+      } catch (e) { }
     })();
   </script>
   <meta name="description"
@@ -37,12 +37,15 @@
         <li><a href="../">All Apps</a></li>
         <li>
           <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
             </svg>
           </button>
         </li>
@@ -115,7 +118,6 @@
             <li>100% free — no trial periods, no locked features</li>
             <li>Zero ads — not now, not ever</li>
             <li>Open source — every line of code on GitHub</li>
-            <li>Optional tip jar — love the app? Buy us a coffee ☕</li>
             <li>8 languages — EN, 繁中, 简中, 한국어, 日本語, DE, FR, ES</li>
             <li>Light &amp; Dark mode that follows your system</li>
           </ul>
@@ -132,7 +134,7 @@
 
         <article class="legal-card">
           <h3>Privacy Policy</h3>
-          <p>TacMoji does not collect personal data. The optional Tip Jar is processed by Apple and RevenueCat.
+          <p>TacMoji does not collect personal data and no ads.
             Read the full policy for details.</p>
           <div class="legal-actions">
             <a href="privacy-policy.html" class="btn btn-legal">Privacy Policy</a>
@@ -145,6 +147,18 @@
           <div class="legal-actions">
             <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" class="btn btn-legal"
               target="_blank" rel="noopener">Apple Standard EULA</a>
+          </div>
+        </article>
+
+        <article class="legal-card">
+          <h3>Credits</h3>
+          <p>Emoji piece artwork is from Microsoft Fluent Emoji (static and animated), © Microsoft Corporation,
+            licensed under the MIT License.</p>
+          <div class="legal-actions">
+            <a href="https://github.com/microsoft/fluentui-emoji" class="btn btn-legal" target="_blank"
+              rel="noopener">Fluent Emoji</a>
+            <a href="https://github.com/microsoft/fluentui-emoji-animated" class="btn btn-legal" target="_blank"
+              rel="noopener">Fluent Emoji (Animated)</a>
           </div>
         </article>
 
