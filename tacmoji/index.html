@@ -32,6 +32,7 @@
     <div class="nav-inner">
       <a href="../" class="nav-logo">myopen.app</a>
       <ul class="nav-links">
+        <li><a href="#preview">Preview</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#legal">Legal</a></li>
         <li><a href="../">All Apps</a></li>
@@ -56,13 +57,13 @@
   <section id="hero">
     <div class="container">
       <p class="hero-eyebrow">Game · Strategy</p>
-      <h1>TacMoji</h1>
+      <h1>TacMoji · Tic Tac Toe</h1>
       <p class="hero-sub">The classic pencil-and-paper game, reimagined. Four board sizes, smart AI, two-player
         face-off, and pieces that are anything you want.</p>
       <p class="hero-note">Free to play. No ads. No tracking.</p>
       <div class="hero-actions">
-        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true" data-tooltip="Coming soon"
-          title="Coming soon">
+        <a href="#preview" class="btn btn-store">App Preview</a>
+        <a href="https://apps.apple.com/app/id6775199909" class="btn btn-store" target="_blank" rel="noopener">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
             <path d="M8 12l2 2 4-4" />
@@ -72,6 +73,61 @@
         <a href="privacy-policy.html" class="btn btn-legal">Privacy Policy</a>
         <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" class="btn btn-legal"
           target="_blank" rel="noopener">Terms of Use</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="preview">
+    <div class="container">
+      <p class="section-label">Preview</p>
+      <div class="screenshots-head">
+        <h2 class="screenshots-title">Browse the app like an App Store gallery.</h2>
+        <p class="screenshots-note">Swipe or scroll sideways to browse all screens.</p>
+      </div>
+
+      <div class="screenshot-rail" aria-label="TacMoji screenshots">
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-01.jpg"
+                alt="Emoji Tic Tac Toe gameplay screen with ghost and sunglasses emoji pieces" /></div>
+            <figcaption><span class="shot-title">Emoji Tic Tac Toe</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-02.jpg"
+                alt="Customize player pieces with animated emojis, colors, shapes, or letters" /></div>
+            <figcaption><span class="shot-title">Customize with Emojis</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-03.jpg" alt="Classic O and X tic-tac-toe mode in light theme" />
+            </div>
+            <figcaption><span class="shot-title">Classic O X Mode</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-04.jpg"
+                alt="9 by 9 board game screen showing a winning line of ghost emoji pieces" /></div>
+            <figcaption><span class="shot-title">Up to 9x9 Boards</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-05.jpg"
+                alt="2-player local mode on a single device with rotated opponent UI for easy face-off" /></div>
+            <figcaption><span class="shot-title">2-Player Face-off</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-06.jpg"
+                alt="Settings screen with language, theme selection, and game configurations" /></div>
+            <figcaption><span class="shot-title">Pure Gameplay Settings</span></figcaption>
+          </figure>
+        </article>
       </div>
     </div>
   </section>
@@ -201,27 +257,6 @@
     </div>
   </footer>
 
-  <div class="toast" id="coming-soon-toast" aria-live="polite" aria-atomic="true">Coming soon</div>
-  <script>
-    (() => {
-      const buttons = document.querySelectorAll('.btn-soon');
-      const toast = document.getElementById('coming-soon-toast');
-      let toastTimer;
-      if (!buttons.length || !toast) return;
-      const showToast = (message) => {
-        toast.textContent = message;
-        toast.classList.add('is-visible');
-        window.clearTimeout(toastTimer);
-        toastTimer = window.setTimeout(() => { toast.classList.remove('is-visible'); }, 1800);
-      };
-      buttons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-          event.preventDefault();
-          showToast(button.dataset.tooltip || 'Coming soon');
-        });
-      });
-    })();
-  </script>
   <script src="../assets/theme.js"></script>
 </body>
 
