@@ -682,14 +682,36 @@
             background: var(--bg-card-hover);
         }
 
-        .theme-toggle svg { width: 15px; height: 15px; display: block; }
-        .theme-toggle .icon-sun  { display: none; }
-        .theme-toggle .icon-moon { display: block; }
-        :root[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
-        :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+        .theme-toggle svg {
+            width: 15px;
+            height: 15px;
+            display: block;
+        }
+
+        .theme-toggle .icon-sun {
+            display: none;
+        }
+
+        .theme-toggle .icon-moon {
+            display: block;
+        }
+
+        :root[data-theme="dark"] .theme-toggle .icon-sun {
+            display: block;
+        }
+
+        :root[data-theme="dark"] .theme-toggle .icon-moon {
+            display: none;
+        }
+
         @media (prefers-color-scheme: dark) {
-            :root:not([data-theme="light"]) .theme-toggle .icon-sun  { display: block; }
-            :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+            :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+                display: block;
+            }
+
+            :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+                display: none;
+            }
         }
 
         /* ── Responsive ── */
@@ -729,12 +751,15 @@
                 <li><a href="#principles">Principles</a></li>
                 <li>
                     <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
-                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                         </svg>
-                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <circle cx="12" cy="12" r="4" />
-                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                            <path
+                                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
                         </svg>
                     </button>
                 </li>
@@ -763,6 +788,36 @@
             </div>
 
             <div class="apps-grid">
+
+                <!-- TacMoji -->
+                <div class="app-card" data-category="Game">
+                    <div class="app-header">
+                        <a href="tacmoji/" class="app-name app-link">TacMoji · Tic Tac Toe</a>
+                        <span class="app-tag">Game</span>
+                    </div>
+                    <div class="app-desc">
+                        <strong>The classic pencil-and-paper game, reimagined.</strong>
+                        Four board sizes, smart AI, two-player face-off, and pieces that are any emoji, shape, or letter
+                        you want. Free forever, zero ads.
+                    </div>
+                    <div class="app-buttons">
+                        <a href="https://apps.apple.com/app/id6775199909" class="btn btn-store" target="_blank"
+                            rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
+                                <path d="M8 12l2 2 4-4" />
+                            </svg>
+                            App Store
+                        </a>
+                        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true"
+                            data-tooltip="Coming soon" title="Coming soon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M5 3l14 9-14 9V3z" />
+                            </svg>
+                            Google Play
+                        </a>
+                    </div>
+                </div>
 
                 <!-- Recurring Expenses -->
                 <div class="app-card" data-category="Utility">
@@ -793,10 +848,11 @@
                         </a>
                     </div>
                 </div>
+
                 <!-- FlipMind -->
                 <div class="app-card" data-category="Game">
                     <div class="app-header">
-                        <a href="flipmind/" class="app-name app-link">FlipMind</a>
+                        <a href="flipmind/" class="app-name app-link">FlipMind (Coming Soon)</a>
                         <span class="app-tag">Game</span>
                     </div>
                     <div class="app-desc">
@@ -819,43 +875,14 @@
                             </svg>
                             Google Play
                         </a>
-                        <a href="javascript:void(0)" class="btn btn-github btn-soon" aria-disabled="true"
+                        <!-- <a href="javascript:void(0)" class="btn btn-github btn-soon" aria-disabled="true"
                             data-tooltip="Coming soon" title="Coming soon">
                             <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path
                                     d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                             </svg>
                             GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <!-- TacMoji -->
-                <div class="app-card" data-category="Game">
-                    <div class="app-header">
-                        <a href="tacmoji/" class="app-name app-link">TacMoji · Tic Tac Toe</a>
-                        <span class="app-tag">Game</span>
-                    </div>
-                    <div class="app-desc">
-                        <strong>The classic pencil-and-paper game, reimagined.</strong>
-                        Four board sizes, smart AI, two-player face-off, and pieces that are any emoji, shape, or letter you want. Free forever, zero ads.
-                    </div>
-                    <div class="app-buttons">
-                        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true"
-                            data-tooltip="Coming soon" title="Coming soon">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
-                                <path d="M8 12l2 2 4-4" />
-                            </svg>
-                            App Store
-                        </a>
-                        <a href="javascript:void(0)" class="btn btn-store btn-soon" aria-disabled="true"
-                            data-tooltip="Coming soon" title="Coming soon">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M5 3l14 9-14 9V3z" />
-                            </svg>
-                            Google Play
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 
