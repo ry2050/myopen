@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>We, Together App · Tic Tac Toe - MyOpen Series</title>
+  <!-- Apply saved theme before first paint. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('myopen-theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) { }
+    })();
+  </script>
+  <meta name="description"
+    content="We, Together App is a free-to-play tic-tac-toe game with 4 board sizes, smart AI, two-player face-off, and fully customizable emoji pieces. No ads, no tracking." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Sans+TC:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/common.css">
+  <link rel="stylesheet" href="../assets/product.css">
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">myopen.app</a>
+      <ul class="nav-links">
+        <li><a href="#preview">Preview</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#legal">Legal</a></li>
+        <li><a href="../">All Apps</a></li>
+        <li>
+          <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Game · Strategy</p>
+      <h1>We, Together App · Tic Tac Toe</h1>
+      <p class="hero-sub">The classic pencil-and-paper game, reimagined. Four board sizes, smart AI, two-player
+        face-off, a timed Challenge Mode with Game Center leaderboards, and pieces that are anything you want.</p>
+      <p class="hero-note">Free to play. No ads. No tracking.</p>
+      <div class="hero-actions">
+        <a href="#preview" class="btn btn-store">App Preview</a>
+        <a href="https://apps.apple.com/app/id6775199909" class="btn btn-store" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
+            <path d="M8 12l2 2 4-4" />
+          </svg>
+          App Store
+        </a>
+        <a href="privacy-policy.html" class="btn btn-legal">Privacy Policy</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" class="btn btn-legal"
+          target="_blank" rel="noopener">Terms of Use</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="preview">
+    <div class="container">
+      <p class="section-label">Preview</p>
+      <div class="screenshots-head">
+        <h2 class="screenshots-title">Browse the app like an App Store gallery.</h2>
+        <p class="screenshots-note">Swipe or scroll sideways to browse all screens.</p>
+      </div>
+
+      <div class="screenshot-rail" aria-label="We, Together App screenshots">
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-01.jpg"
+                alt="Emoji Tic Tac Toe gameplay screen with ghost and sunglasses emoji pieces" /></div>
+            <figcaption><span class="shot-title">Emoji Tic Tac Toe</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-02.jpg"
+                alt="Customize player pieces with animated emojis, colors, shapes, or letters" /></div>
+            <figcaption><span class="shot-title">Customize with Emojis</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-03.jpg" alt="Classic O and X tic-tac-toe mode in light theme" />
+            </div>
+            <figcaption><span class="shot-title">Classic O X Mode</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-04.jpg"
+                alt="9 by 9 board game screen showing a winning line of ghost emoji pieces" /></div>
+            <figcaption><span class="shot-title">Up to 9x9 Boards</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-05.jpg"
+                alt="2-player local mode on a single device with rotated opponent UI for easy face-off" /></div>
+            <figcaption><span class="shot-title">2-Player Face-off</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-06.jpg"
+                alt="Settings screen with language, theme selection, and game configurations" /></div>
+            <figcaption><span class="shot-title">Pure Gameplay Settings</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-07.jpg"
+                alt="Challenge Mode results screen showing a new high score of 218 from a 5-minute timed run with win, game, and win-rate stats" /></div>
+            <figcaption><span class="shot-title">Timed Challenge Mode</span></figcaption>
+          </figure>
+        </article>
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/en-08.jpg"
+                alt="Challenge run detail listing every game as win, loss, or draw with move counts, recorded for Game Center leaderboards" /></div>
+            <figcaption><span class="shot-title">Climb the Leaderboards</span></figcaption>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <p class="section-label">Features</p>
+      <div class="feature-grid">
+
+        <article class="feature-card">
+          <h3>Four Boards</h3>
+          <ul class="feature-list">
+            <li>3×3 — The classic you know by heart</li>
+            <li>5×5 — More space, more tactics</li>
+            <li>7×7 — Epic match-ups that test your true skill</li>
+            <li>9×9 — The ultimate challenge for true masters</li>
+            <li>Win condition adjusts automatically per board size</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Two Ways to Play</h3>
+          <ul class="feature-list">
+            <li>vs CPU — real Minimax strategy with alpha-beta pruning</li>
+            <li>2 Players — face off on the same device, no passing needed</li>
+            <li>Opponent's pieces and labels auto-rotate 180° so both sides read clearly</li>
+            <li>No second screen, no account, no setup</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Timed Challenge Mode</h3>
+          <ul class="feature-list">
+            <li>5-minute timed runs — squeeze in as many wins as you can</li>
+            <li>Every game scored — wins, win rate, and moves tracked automatically</li>
+            <li>Beat your own high score, then push for the next record</li>
+            <li>Every run recorded and ranked on Game Center leaderboards</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Game Center Integration</h3>
+          <ul class="feature-list">
+            <li>Global Leaderboards — track your ranking and compete with players worldwide</li>
+            <li>Score Comparison — compare your records and achievements against friends</li>
+            <li>Frictionless — sign in securely with your Apple ID, no custom accounts required</li>
+            <li>Win/loss stats tracked automatically in Game Center</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Your Pieces, Your Style</h3>
+          <ul class="feature-list">
+            <li>Any emoji, static or animated — animals, food, faces, symbols, play as literally anything you love</li>
+            <li>Classic shapes ●■▲★ — clean and bold</li>
+            <li>Any letter A–Z — go with your initials</li>
+            <li>Each player picks their own symbol and color independently</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>Honest to the Core</h3>
+          <ul class="feature-list">
+            <li>Free to play — the full game, no account, no setup</li>
+            <li>Optional emoji packs — expand your collection anytime if you want</li>
+            <li>No ads, no tracking — your game stays on your device</li>
+            <li>8 languages — EN, 繁中, 简中, 한국어, 日本語, DE, FR, ES</li>
+            <li>Light &amp; Dark mode that follows your system</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="legal">
+    <div class="container">
+      <p class="section-label">Legal</p>
+      <div class="legal-grid">
+
+        <article class="legal-card">
+          <h3>Privacy Policy</h3>
+          <p>We, Together App does not collect personal data and no ads.
+            Read the full policy for details.</p>
+          <div class="legal-actions">
+            <a href="privacy-policy.html" class="btn btn-legal">Privacy Policy</a>
+          </div>
+        </article>
+
+        <article class="legal-card">
+          <h3>Terms of Use</h3>
+          <p>We, Together App uses Apple's Standard End User License Agreement (EULA) as the terms of use.</p>
+          <div class="legal-actions">
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" class="btn btn-legal"
+              target="_blank" rel="noopener">Apple Standard EULA</a>
+          </div>
+        </article>
+
+        <article class="legal-card">
+          <h3>Credits</h3>
+          <p>Emoji piece artwork is from Microsoft Fluent Emoji (static and animated), © Microsoft Corporation,
+            licensed under the MIT License.</p>
+          <div class="legal-actions">
+            <a href="https://github.com/microsoft/fluentui-emoji" class="btn btn-legal" target="_blank"
+              rel="noopener">Fluent Emoji</a>
+            <a href="https://github.com/microsoft/fluentui-emoji-animated" class="btn btn-legal" target="_blank"
+              rel="noopener">Fluent Emoji (Animated)</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="container">
+      <p class="section-label">Support the Project</p>
+      <div class="pro-card">
+        <div class="pro-copy">
+          <h2>If We, Together App brought back a childhood smile, here are a few ways to help.</h2>
+          <p>We, Together App is built and maintained by one person, in the gaps between life. The game stays free with no ads —
+            so a little support goes a long way toward keeping it independent and moving forward:</p>
+          <ul class="feature-list">
+            <li>Grab an optional emoji pack in the app — the most direct way to chip in</li>
+            <li>Leave a rating or review on the App Store — it genuinely helps others find it</li>
+            <li>Share We, Together App with a friend who loves a good tic-tac-toe match</li>
+          </ul>
+        </div>
+        <div class="hero-actions">
+          <a href="https://apps.apple.com/app/id6775199909" class="btn btn-store" target="_blank" rel="noopener">App
+            Store</a>
+          <a href="https://apps.apple.com/app/id6775199909?action=write-review" class="btn btn-legal" target="_blank"
+            rel="noopener">Rate We, Together App</a>
+          <a href="mailto:support@myopen.app" class="btn btn-legal">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">We, Together App</p>
+          <p class="footer-tagline">Tic-tac-toe reimagined. Free to play, no tracking. Made with care.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="../">All Apps</a></li>
+          <li><a href="privacy-policy.html">Privacy</a></li>
+          <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank"
+              rel="noopener">Terms</a></li>
+          <li><a href="mailto:support@myopen.app">Contact</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 MyOpen Apps</p>
+    </div>
+  </footer>
+
+  <script src="../assets/theme.js"></script>
+</body>
+
+</html>
