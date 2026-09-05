@@ -372,3 +372,33 @@ h1 {
     grid-auto-columns: minmax(220px, 78vw);
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Landscape-only apps (Mahjong Now)
+
+   The default rail column is minmax(240px, 300px), sized for portrait
+   phone shots (~1284x2778). A landscape shot (2778x1284) dropped into
+   that column renders as a ~140px strip inside a 28px-radius frame.
+   This modifier widens the column and softens the corner radius to suit.
+   Additive only — no existing selector is changed.
+   ───────────────────────────────────────────────────────────── */
+.screenshot-rail.is-landscape {
+  grid-auto-columns: minmax(420px, 560px);
+}
+
+.screenshot-rail.is-landscape .shot-frame {
+  border-radius: 20px;
+}
+
+/* .shot img is hard-coded to 9/19.5 (portrait phone) with object-fit: cover,
+   which crops the sides off a landscape shot. Flip the ratio so a 19.5:9
+   screenshot fills the frame exactly, with nothing cropped. */
+.screenshot-rail.is-landscape .shot img {
+  aspect-ratio: 19.5 / 9;
+}
+
+@media (max-width: 640px) {
+  .screenshot-rail.is-landscape {
+    grid-auto-columns: minmax(280px, 88vw);
+  }
+}
