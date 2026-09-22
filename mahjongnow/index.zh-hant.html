@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台灣麻將 Mahjong Now － MyOpen Series</title>
+  <meta name="description"
+    content="台灣麻將 Mahjong Now － 十六張台灣麻將。不用帳號，不用等人。單機離線跟 AI 打，或開個房號揪朋友入座。" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('myopen-theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/common.css">
+  <link rel="stylesheet" href="../assets/product.css">
+  <link rel="alternate" hreflang="en" href="https://www.myopen.app/mahjongnow/" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.myopen.app/mahjongnow/index.zh-hant.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.myopen.app/mahjongnow/" />
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">myopen.app</a>
+      <ul class="nav-links">
+        <li><a href="#preview">畫面</a></li>
+        <li><a href="#features">特色</a></li>
+        <li><a href="#legal">法律</a></li>
+        <li><a href="../">所有 App</a></li>
+        <li><a href="index.html" hreflang="en" lang="en">English</a></li>
+        <li>
+          <button class="theme-toggle" data-theme-toggle aria-label="切換主題" title="切換主題">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow">MyOpen Game</p>
+      <h1>台灣麻將 Mahjong Now</h1>
+      <p class="hero-sub">台灣麻將，十六張。坐下就打。</p>
+      <p class="hero-note">不用註冊、不用登入、不用等第四個人。單機關掉網路也能跟 AI 打，或傳個房號讓朋友入座。
+        純台數計算 &mdash; 沒有金錢、沒有籌碼、沒有賭博。</p>
+      <div class="hero-actions">
+        <a href="#preview" class="btn btn-store">看看畫面</a>
+        <a href="privacy-policy.html" class="btn btn-legal" hreflang="en">隱私權政策</a>
+        <a href="terms.html" class="btn btn-github" hreflang="en">使用條款</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="preview">
+    <div class="container">
+      <p class="section-label">畫面</p>
+
+      <div class="screenshots-head">
+        <h2 class="screenshots-title">像逛 App Store 一樣瀏覽每個畫面。</h2>
+        <p class="screenshots-note">左右滑動看完全部畫面。</p>
+      </div>
+
+      <div class="screenshot-rail is-landscape" aria-label="台灣麻將 Mahjong Now 畫面">
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/zh/01.jpg" alt="牌局進行中的牌桌，十六張手牌搭配正統台灣牌面" loading="lazy" /></div>
+            <figcaption><span class="shot-title">牌桌</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/zh/02.jpg" alt="同一張牌桌改用中文字牌面與深色主題" loading="lazy" /></div>
+            <figcaption><span class="shot-title">三種牌面</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/zh/03.jpg" alt="結算畫面把自摸這一手拆成各項台數" loading="lazy" /></div>
+            <figcaption><span class="shot-title">每一手都算得清楚</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/zh/04.jpg" alt="賽末戰報：排名、放槍、自摸、連莊與最大的一手" loading="lazy" /></div>
+            <figcaption><span class="shot-title">打完有戰報</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/zh/05.jpg" alt="個人統計：局數、勝率、最長連勝與最愛番型" loading="lazy" /></div>
+            <figcaption><span class="shot-title">你的成長紀錄</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/zh/06.jpg" alt="房間頁：房號、四個座位，以及房主設定的 AI 難度、局數與倒數" loading="lazy" /></div>
+            <figcaption><span class="shot-title">私人房間</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/zh/07.jpg" alt="房號 QR 對話框 — 朋友掃一下就入座" loading="lazy" /></div>
+            <figcaption><span class="shot-title">掃碼入座</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="shot">
+          <figure>
+            <div class="shot-frame"><img src="assets/zh/08.jpg" alt="主題選擇頁，九套牌桌配色全部免費" loading="lazy" /></div>
+            <figcaption><span class="shot-title">換成你喜歡的樣子</span></figcaption>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <p class="section-label">特色</p>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>台灣規則，打就對了</h3>
+          <ul class="feature-list">
+            <li>完整台灣規則，十六張麻將</li>
+            <li>完整台數計算，番型全部認得出來</li>
+            <li>花牌、連莊、搶槓胡、槓上開花</li>
+            <li>從台灣規則做起 &mdash; 不是從別的規則改過來的</li>
+            <li>單機對戰完全離線，飛航模式也能打</li>
+            <li>單機隨時暫停，下次從原局繼續</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>找朋友，開房就開打</h3>
+          <ul class="feature-list">
+            <li>私人房間 &mdash; 有房號才進得來</li>
+            <li>不會被丟去跟陌生人配對</li>
+            <li>兩人或三人也能開局，空位由 AI 補</li>
+            <li>中途斷線可以回到原本的座位</li>
+            <li>戰報選出放槍王、自摸王、連莊王、大牌王</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>你的麻將成長紀錄</h3>
+          <ul class="feature-list">
+            <li>勝率、最長連勝、最高台數的一手</li>
+            <li>最愛番型 &mdash; 你最常靠什麼胡牌</li>
+            <li>今天、本週、本月、今年，各段時間分開看</li>
+            <li>依 AI 難度分開統計，初級普通進階各算各的</li>
+            <li>單局高光、里程碑、年度回顧，一鍵分享</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <h3>第一次打台灣麻將？</h3>
+          <ul class="feature-list">
+            <li>快速上手 &mdash; 五分鐘就能開打</li>
+            <li>規則手冊 &mdash; 吃、碰、槓、胡、聽牌，一次講一個</li>
+            <li>台數圖鑑 &mdash; 每個番型長什麼樣、算幾台</li>
+            <li>練習題 &mdash; 答錯會告訴你為什麼錯</li>
+            <li>三種 AI 難度，慢慢往上打</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="free">
+    <div class="container">
+      <p class="section-label">免費</p>
+      <div class="pro-card">
+        <div class="pro-copy">
+          <h2>免費遊玩，沒有任何內購。</h2>
+          <p>上面所有功能在免費版裡都有 &mdash; 沒有內購，也沒有訂閱。
+            Mahjong Now 靠廣告維持：每個風圈的末莊之前會出現一支插頁廣告，牌局進行中絕不打斷。
+            單機對戰關掉網路也能打。</p>
+        </div>
+        <div class="hero-actions">
+          <a href="privacy-policy.html" class="btn btn-store" hreflang="en">我們怎麼處理你的資料</a>
+          <a href="terms.html" class="btn btn-github" hreflang="en">使用條款</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="legal">
+    <div class="container">
+      <p class="section-label">法律</p>
+      <div class="legal-grid">
+        <article class="legal-card">
+          <h3>隱私權政策</h3>
+          <p>哪些資料留在你的裝置上、連線對戰會送什麼到 relay 伺服器，以及廣告怎麼處理。</p>
+          <div class="legal-actions">
+            <a href="privacy-policy.html" class="btn btn-legal" hreflang="en">隱私權政策</a>
+          </div>
+        </article>
+
+        <article class="legal-card">
+          <h3>使用條款</h3>
+          <p>服務條款、連線房間的公平遊玩、relay 伺服器的可用性，以及免責聲明。</p>
+          <div class="legal-actions">
+            <a href="terms.html" class="btn btn-legal" hreflang="en">使用條款</a>
+          </div>
+        </article>
+
+        <article class="legal-card">
+          <h3>開源授權</h3>
+          <p>Mahjong Now 使用的字型與函式庫的第三方開源授權聲明。</p>
+          <div class="legal-actions">
+            <a href="licenses.html" class="btn btn-legal" hreflang="en">開源授權</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">台灣麻將 Mahjong Now</p>
+          <p class="footer-tagline">十六張台灣麻將。不用帳號，不用等人。</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="../">所有 App</a></li>
+          <li><a href="privacy-policy.html" hreflang="en">隱私權</a></li>
+          <li><a href="terms.html" hreflang="en">使用條款</a></li>
+          <li><a href="licenses.html" hreflang="en">開源授權</a></li>
+          <li><a href="mailto:support@myopen.app">聯絡我們</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">&copy; 2026 MyOpen Apps</p>
+    </div>
+  </footer>
+
+  <script src="../assets/theme.js"></script>
+</body>
+
+</html>

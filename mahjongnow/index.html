@@ -24,9 +24,60 @@
     rel="stylesheet">
   <link rel="stylesheet" href="../assets/common.css">
   <link rel="stylesheet" href="../assets/product.css">
+  <link rel="alternate" hreflang="en" href="https://www.myopen.app/mahjongnow/" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.myopen.app/mahjongnow/index.zh-hant.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.myopen.app/mahjongnow/" />
+  <style>
+    /* 語言提示條：只在中文瀏覽器開啟英文頁時由 JS 顯示，可關閉且記住 */
+    .lang-hint {
+      display: none;
+      /* 固定在底部：nav 是 position:fixed z-index:100，放頁面頂端會被它整條蓋掉 */
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 200;
+      border-top: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 12px rgb(0 0 0 / 0.08);
+    }
+    .lang-hint.is-shown { display: block; }
+    .lang-hint-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 20px calc(10px + env(safe-area-inset-bottom));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .lang-hint a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .lang-hint a:hover { text-decoration: underline; }
+    .lang-hint button {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font: inherit;
+      line-height: 1;
+      padding: 4px 10px;
+    }
+    .lang-hint button:hover { border-color: var(--border-hover); color: var(--text); }
+  </style>
 </head>
 
 <body>
+  <div class="lang-hint" id="langHint" hidden>
+    <div class="lang-hint-inner">
+      <span lang="zh-Hant">這個 App 是台灣麻將，我們有繁體中文版網頁。</span>
+      <a href="index.zh-hant.html" hreflang="zh-Hant" lang="zh-Hant">看中文版 &rarr;</a>
+      <button type="button" id="langHintClose" lang="zh-Hant" aria-label="關閉">不用，謝謝</button>
+    </div>
+  </div>
   <nav>
     <div class="nav-inner">
       <a href="../" class="nav-logo">myopen.app</a>
@@ -35,6 +86,7 @@
         <li><a href="#features">Features</a></li>
         <li><a href="#legal">Legal</a></li>
         <li><a href="../">All Apps</a></li>
+        <li><a href="index.zh-hant.html" hreflang="zh-Hant" lang="zh-Hant">中文</a></li>
         <li>
           <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
             <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -145,7 +197,8 @@
             <li>Complete han scoring, with every hand type recognised</li>
             <li>Flowers, dealer runs, robbing the kong, kong-on-kong</li>
             <li>Built for Taiwan rules first &mdash; not adapted from another ruleset</li>
-            <li>Pause mid-hand and resume exactly where you left off</li>
+            <li>Single-player works with the network off</li>
+            <li>Pause a single-player hand and resume exactly where you left off</li>
           </ul>
         </article>
 
@@ -165,7 +218,7 @@
           <ul class="feature-list">
             <li>Win rate, longest streak, highest-scoring hand</li>
             <li>Your top three winning hand types</li>
-            <li>Trend over your last 30 games</li>
+            <li>Today, this week, this month, this year &mdash; each period on its own</li>
             <li>Tracked separately for each AI difficulty</li>
             <li>Share a hand, a milestone, or your year in review</li>
           </ul>
@@ -239,7 +292,7 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <p class="footer-logo">Mahjong Now</p>
-          <p class="footer-tagline">16-tile Taiwan Mahjong. Play now, pause anytime.</p>
+          <p class="footer-tagline">16-tile Taiwan Mahjong. No account, no waiting.</p>
         </div>
         <ul class="footer-links">
           <li><a href="../">All Apps</a></li>
@@ -254,6 +307,31 @@
   </footer>
 
   <script src="../assets/theme.js"></script>
+  <script>
+    /* 中文瀏覽器造訪英文頁時，提示有中文版。不自動導向：
+       導向會讓使用者回不去，也會讓搜尋引擎抓不到正確的頁面。 */
+    (function () {
+      var hint = document.getElementById('langHint');
+      if (!hint) return;
+      var KEY = 'myopen-lang-hint-dismissed';
+      try { if (localStorage.getItem(KEY) === '1') return; } catch (e) {}
+      var langs = navigator.languages || [navigator.language || ''];
+      var wantsZh = Array.prototype.some.call(langs, function (l) {
+        return /^zh/i.test(l || '');
+      });
+      if (!wantsZh) return;
+      hint.hidden = false;
+      hint.classList.add('is-shown');
+      var close = document.getElementById('langHintClose');
+      if (close) {
+        close.addEventListener('click', function () {
+          hint.classList.remove('is-shown');
+          hint.hidden = true;
+          try { localStorage.setItem(KEY, '1'); } catch (e) {}
+        });
+      }
+    })();
+  </script>
 </body>
 
 </html>
