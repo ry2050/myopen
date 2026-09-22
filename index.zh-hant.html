@@ -1,111 +1,126 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyOpen.app — Robert Yang（CodeTo2050）的 App</title>
-  <meta name="description" content="由 Robert Yang 製作的 MyOpen App 系列，隸屬 CodeTo2050 專案。" />
-
-  <link rel="stylesheet" href="assets/styles.css" />
+  <title>MyOpen App 系列 － Robert Yang（CodeTo2050）</title>
+  <meta name="description" content="MyOpen App 系列的中文導覽：台灣麻將 Mahjong Now、TacMoji 井字遊戲、Recurring Expenses、FlipMind。" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('myopen-theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/common.css">
+  <link rel="stylesheet" href="assets/product.css">
+  <link rel="alternate" hreflang="en" href="https://www.myopen.app/" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.myopen.app/index.zh-hant.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.myopen.app/" />
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <div class="badge">
-        <span>MyOpen.app</span>
-        <span>·</span>
-        <span>CodeTo2050</span>
-        <span>·</span>
-        <span>Built by Robert Yang</span>
-      </div>
-      <div class="badge">
-        <a href="https://www.youtube.com/@CodeTo2050" target="_blank">YT: CodeTo2050</a>
-      </div>
-
-      <h1>MyOpen App Series<br />Code To 2050, and beyond!</h1>
-      <p>
-        MyOpen.app 是我的 App 公開首頁。<br />
-        我也會在 <a href="https://www.youtube.com/@CodeTo2050" target="_blank">YouTube</a> 分享教學與開發紀錄。<br />
-      </p>
-    </header>
-
-    <div class="section-title">
-      <h2>iOS 與 Android App</h2>
-      <!-- <div class="muted">
-        Legal pages: <a href="/legal/">/legal/</a> (per-app: <code>/legal/&lt;app&gt;/</code>)
-      </div> -->
+  <nav>
+    <div class="nav-inner">
+      <a href="./" class="nav-logo">myopen.app</a>
+      <ul class="nav-links">
+        <li><a href="#apps">App</a></li>
+        <li><a href="index.html" hreflang="en" lang="en">English</a></li>
+        <li>
+          <button class="theme-toggle" data-theme-toggle aria-label="切換主題" title="切換主題">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+          </button>
+        </li>
+      </ul>
     </div>
+  </nav>
 
-    <main class="project-grid">
-      <!-- TicTacToe -->
-      <article class="card">
-        <div class="card-image"><img src=assets/tictactoe-128x128.png "TicTacToe icon"></div>
-        <div class="card-content">
-          <h3>TicTacToe</h3>
-          <p>簡單的跨平台 TicTacToe App。</p>
-          <div class="btn-column">
-            <a href="https://www.youtube.com/watch?v=some-video-id" class="btn secondary" target="_blank">YT Demo</a>
-            <a href="https://github.com/CodeTo2050/myopen-tictactoe" class="btn btn-full-width" target="_blank">View Project</a>
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow">MyOpen App Series</p>
+      <h1>Code To 2050, and beyond!</h1>
+      <p class="hero-sub">Robert Yang（CodeTo2050）做的 App。</p>
+      <p class="hero-note">這是中文導覽頁，只列出目前有的 App。
+        <a href="index.html" hreflang="en" lang="en">英文版首頁</a>有完整介紹與開發理念。</p>
+    </div>
+  </section>
+
+  <section id="apps">
+    <div class="container">
+      <p class="section-label">App</p>
+
+      <div class="legal-grid">
+        <article class="legal-card">
+          <h3>台灣麻將 Mahjong Now</h3>
+          <p>台灣麻將，十六張。不用帳號、不用等人。單機關掉網路也能跟 AI 打，
+            或傳個房號讓朋友掃碼入座。純台數計算，沒有金錢與賭博。</p>
+          <div class="legal-actions">
+            <a href="mahjongnow/index.zh-hant.html" class="btn btn-legal">中文介紹</a>
           </div>
-          <div class="tags">
-            <span class="tag">遊戲</span>
-            <span class="tag">iOS</span>
-            <span class="tag">Android</span>
+        </article>
+
+        <article class="legal-card">
+          <h3>TacMoji · 井字遊戲</h3>
+          <p>經典紙筆遊戲的重新想像：四種棋盤尺寸、聰明的 AI、雙人對戰，
+            棋子可以是任何 emoji、形狀或字母。永久免費、零廣告。</p>
+          <div class="legal-actions">
+            <a href="tacmoji/" class="btn btn-legal" hreflang="en">介紹（英文）</a>
+            <a href="https://apps.apple.com/app/id6775199909" class="btn btn-store" target="_blank" rel="noopener">App Store</a>
           </div>
-          <div class="btn-row">
-            <a href="/tictactoe/privacy-policy.html" class="btn secondary legal-link">隱私權</a>
-            <a href="/tictactoe/terms.html" class="btn secondary legal-link">條款</a>
-            <a href="/tictactoe/open-source-licenses.html" class="btn secondary legal-link">授權</a>
+        </article>
+
+        <article class="legal-card">
+          <h3>Recurring Expenses</h3>
+          <p>訂閱與週期性支出的管理工具，把每個月固定要付的錢整理清楚。</p>
+          <div class="legal-actions">
+            <a href="recurring/" class="btn btn-legal" hreflang="en">介紹（英文）</a>
           </div>
+        </article>
+
+        <article class="legal-card">
+          <h3>FlipMind（即將推出）</h3>
+          <p>記憶翻牌遊戲，還在開發中。</p>
+          <div class="legal-actions">
+            <a href="flipmind/" class="btn btn-legal" hreflang="en">介紹（英文）</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">MyOpen.app</p>
+          <p class="footer-tagline">Code To 2050, and beyond!</p>
         </div>
-      </article>
+        <ul class="footer-links">
+          <li><a href="index.html" hreflang="en" lang="en">English</a></li>
+          <li><a href="https://www.youtube.com/@CodeTo2050" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="mailto:support@myopen.app">聯絡我們</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">&copy; 2026 MyOpen Apps</p>
+    </div>
+  </footer>
 
-      <!-- Subscription Manager -->
-      <article class="card">
-        <div class="card-image"><img src=assets/subscriptionmanager-128x128.png "TicTacToe icon"></div>
-        <div class="card-content">
-          <h3>MyOpen Subscription Manager</h3>
-          <p>在一個地方追蹤並管理訂閱。（即將推出）</p>
-          <div class="btn-column">
-            <a href="https://www.youtube.com/watch?v=another-video-id" class="btn secondary" target="_blank">YT Teaser</a>
-            <a href="https://github.com/CodeTo2050/myopen-subscription-manager" class="btn btn-full-width" target="_blank">View Project</a>
-          </div>
-          <div class="tags">
-            <span class="tag">生產力</span>
-            <span class="tag">iOS</span>
-            <span class="tag">Android</span>
-          </div>
-          <div class="btn-row">
-            <a href="/subscriptionmanager/privacy-policy.html" class="btn secondary legal-link">隱私權</a>
-            <a href="/subscriptionmanager/terms.html" class="btn secondary legal-link">條款</a>
-            <a href="/subscriptionmanager/open-source-licenses.html" class="btn secondary legal-link">授權</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Add more apps by copying a card -->
-      <article class="card">
-        <div class="card-image">✨</div>
-        <div class="card-content">
-          <h3>更多 App</h3>
-          <p>更多 MyOpen App 將會陸續加入。</p>
-          <div class="tags">
-            <span class="tag">MyOpen</span>
-            <span class="tag">CodeTo2050</span>
-          </div>
-          <!-- <div class="btn-row">
-            <a href="/legal/" class="btn secondary">Legal</a>
-            <a href="mailto:support@myopen.app" class="btn secondary">Contact</a>
-          </div> -->
-        </div>
-      </article>
-    </main>
-
-    <footer>
-      <p><strong>Developer / Responsible party:</strong> Robert Yang · <a href="mailto:support@myopen.app">support@myopen.app</a></p>
-      <p class="small">© 2025–2026 Robert Yang — MyOpen (myopen.app). <br>A MyOpen app series, created as part of the CodeTo2050 project.</p>
-    </footer>
-  </div>
+  <script src="assets/theme.js"></script>
 </body>
+
 </html>
