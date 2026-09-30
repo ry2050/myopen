@@ -1,0 +1,7 @@
+# app-ads.txt — IAB Tech Lab authorized digital sellers for apps
+# https://www.myopen.app/ is the developer website listed on the App Store
+# for MyOpen Studio's apps, so Google fetches this file from this domain.
+#
+# One line per authorized seller. AdMob is currently the only ad network,
+# and one publisher ID covers every app under this domain.
+google.com, pub-5129961680122076, DIRECT, f08c47fec0942fa0
