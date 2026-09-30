@@ -109,6 +109,19 @@ h1 {
   color: var(--text);
 }
 
+.btn-appstore {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+
+.btn-appstore:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+  opacity: 0.88;
+}
+
 /* Coming Soon State */
 .coming-soon-content {
   display: none;
