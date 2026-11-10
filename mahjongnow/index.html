@@ -1,317 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taiwan Mahjong Now - MyOpen Series</title>
-  <meta name="description"
-    content="Taiwan Mahjong Now - 16-tile Taiwan Mahjong. No account, no waiting. Play the AI offline or deal friends in with a table code." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taiwan Mahjong Now · 台灣麻將 Now · 台湾麻雀</title>
+  <meta name="description" content="台灣麻將 Now – 16 張台灣麻將，隨時開一桌。Taiwan Mahjong Now – 16-tile Taiwanese mahjong, any time. 台湾麻雀（16枚）をいつでも。">
+  <link rel="canonical" href="https://www.myopen.app/mahjongnow/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Taiwan Mahjong Now · 台灣麻將 Now · 台湾麻雀">
+  <meta property="og:description" content="台灣麻將 Now – 16 張台灣麻將，隨時開一桌。Taiwan Mahjong Now – 16-tile Taiwanese mahjong, any time. 台湾麻雀（16枚）をいつでも。">
+  <meta property="og:url" content="https://www.myopen.app/mahjongnow/">
+  <meta property="og:image" content="https://www.myopen.app/mahjongnow/assets/01.jpg">
   <script>
     (function () {
       try {
         var t = localStorage.getItem('myopen-theme');
-        if (t === 'light' || t === 'dark') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
       } catch (e) {}
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../assets/common.css">
-  <link rel="stylesheet" href="../assets/product.css">
-  <link rel="stylesheet" href="../assets/lightbox.css">
-  <link rel="alternate" hreflang="en" href="https://www.myopen.app/mahjongnow/" />
-  <link rel="alternate" hreflang="zh-Hant" href="https://www.myopen.app/mahjongnow/index.zh-hant.html" />
-  <link rel="alternate" hreflang="x-default" href="https://www.myopen.app/mahjongnow/" />
-  <style>
-    /* 語言提示條：只在中文瀏覽器開啟英文頁時由 JS 顯示，可關閉且記住 */
-    .lang-hint {
-      display: none;
-      /* 固定在底部：nav 是 position:fixed z-index:100，放頁面頂端會被它整條蓋掉 */
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 200;
-      border-top: 1px solid var(--border);
-      background: var(--bg-card);
-      color: var(--text-dim);
-      font-size: 0.9rem;
-      box-shadow: 0 -2px 12px rgb(0 0 0 / 0.08);
-    }
-    .lang-hint.is-shown { display: block; }
-    .lang-hint-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 10px 20px calc(10px + env(safe-area-inset-bottom));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .lang-hint a { color: var(--accent); text-decoration: none; font-weight: 500; }
-    .lang-hint a:hover { text-decoration: underline; }
-    .lang-hint button {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--text-muted);
-      cursor: pointer;
-      font: inherit;
-      line-height: 1;
-      padding: 4px 10px;
-    }
-    .lang-hint button:hover { border-color: var(--border-hover); color: var(--text); }
-    /* 宣傳影片（App Store 預覽同一支，橫式 1600×738）：靜音循環，捲到才載入 */
-    .promo-video {
-      margin: 0 auto 48px;
-      max-width: 960px;
-      border-radius: 28px;
-      overflow: hidden;
-      background: #0F172A;
-      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.45), inset 0 0 0 1px rgba(148, 163, 184, 0.18);
-      aspect-ratio: 1600 / 738;
-    }
-    .promo-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
-    @media (max-width: 600px) { .promo-video { border-radius: 16px; margin-bottom: 32px; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/common.css">
+  <link rel="stylesheet" href="/assets/product.css">
+  <link rel="stylesheet" href="/mahjongnow/assets/web/web.css">
 </head>
 
-<body>
-  <div class="lang-hint" id="langHint" hidden>
-    <div class="lang-hint-inner">
-      <span lang="zh-Hant">這個 App 是台灣麻將，我們有繁體中文版網頁。</span>
-      <a href="index.zh-hant.html" hreflang="zh-Hant" lang="zh-Hant">看中文版 &rarr;</a>
-      <button type="button" id="langHintClose" lang="zh-Hant" aria-label="關閉">不用，謝謝</button>
-    </div>
-  </div>
-  <nav>
+<body class="lang-en">
+  <nav class="site-nav">
     <div class="nav-inner">
-      <a href="../" class="nav-logo">myopen.app</a>
-      <ul class="nav-links">
-        <li><a href="#preview">Preview</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#legal">Legal</a></li>
-        <li><a href="../">All Apps</a></li>
-        <li><a href="index.zh-hant.html" hreflang="zh-Hant" lang="zh-Hant">中文</a></li>
-        <li><a href="ja/" hreflang="ja" lang="ja">日本語ガイド</a></li>
-        <li>
-          <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-            </svg>
-          </button>
-        </li>
-      </ul>
+      <a href="/mahjongnow/" class="nav-logo brand">Taiwan Mahjong Now</a>
+
+      <div class="nav-tools">
+        <a class="nav-app" href="https://apps.apple.com/app/id6802663114?pt=128250087&amp;ct=web_hub&amp;mt=8" target="_blank" rel="noopener">Get the app</a>
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+      </div>
     </div>
   </nav>
-  <section id="hero">
-    <div class="container">
-      <p class="hero-eyebrow">MyOpen Game</p>
-      <h1>Taiwan Mahjong Now</h1>
-      <p class="hero-sub">Taiwan Mahjong, 16 tiles. Sit down and play.</p>
-      <p class="hero-note">No sign-up, no login, no waiting for a fourth. Play the AI with the network off, or send
-        a table code and deal your friends in. Pure tai scoring, fun for the whole family.</p>
-      <div class="hero-actions">
-        <a href="https://apps.apple.com/app/id6802663114" class="btn btn-appstore" target="_blank" rel="noopener">Download on the App
-          Store</a>
-        <a href="#preview" class="btn btn-store">App Preview</a>
-        <a href="privacy-policy.html" class="btn btn-legal">Privacy Policy</a>
-        <a href="terms.html" class="btn btn-github">Terms of Service</a>
-      </div>
-    </div>
-  </section>
 
-  <section id="preview">
-    <div class="container">
-      <p class="section-label">Preview</p>
+  <main>
+    <section id="hero" class="hub-hero">
+      <div class="container">
+        <div class="invite" id="invite" hidden>
+          <p class="section-label" style="margin-bottom: 6px;">桌號 · Table code · 卓コード</p>
+          <p class="invite-code" id="inviteCode"></p>
+          <div class="invite-lines">
+            <span lang="zh-Hant">朋友邀請你加入這一桌</span>
+            <span>A friend invited you to their table</span>
+            <span lang="ja">友だちが卓に招待しています</span>
+          </div>
+          <a href="https://apps.apple.com/app/id6802663114?pt=128250087&amp;ct=web_invite&amp;mt=8" class="btn btn-appstore" target="_blank" rel="noopener">App Store</a>
+          <p class="invite-steps">
+            <span lang="zh-Hant">裝好 App 後，按「馬上揪連線」輸入這個桌號。</span><br>
+            <span>Install the app, tap “Play Online Now” and enter this code.</span><br>
+            <span lang="ja">アプリを入れたら「Play Online Now」をタップして、この卓コードを入力してください。</span>
+          </p>
+        </div>
 
-      <div class="promo-video">
-        <video src="assets/promo-en.mp4" poster="assets/promo-en-poster.jpg" muted loop playsinline controls
-          preload="none" aria-label="Taiwan Mahjong Now app preview video"></video>
-      </div>
-
-      <div class="screenshots-head">
-        <h2 class="screenshots-title">Browse the app like an App Store gallery.</h2>
-        <p class="screenshots-note">Swipe sideways to browse, or tap a shot to enlarge it.</p>
-      </div>
-
-      <div class="screenshot-rail is-landscape" aria-label="Taiwan Mahjong Now screenshots">
-        <article class="shot">
-          <figure>
-            <div class="shot-frame"><img src="assets/01.jpg" alt="A game in progress; single-player can be set to no timer" loading="lazy" /></div>
-            <figcaption><span class="shot-title">Play at Your Own Pace</span></figcaption>
-          </figure>
-        </article>
-
-        <article class="shot">
-          <figure>
-            <div class="shot-frame"><img src="assets/02.jpg" alt="Self-draw result with the tai calculation spelled out" loading="lazy" /></div>
-            <figcaption><span class="shot-title">Every Tai Counted</span></figcaption>
-          </figure>
-        </article>
-
-        <article class="shot">
-          <figure>
-            <div class="shot-frame"><img src="assets/03.jpg" alt="The same table with character tile faces" loading="lazy" /></div>
-            <figcaption><span class="shot-title">Pick Your Tile Style</span></figcaption>
-          </figure>
-        </article>
-
-        <article class="shot">
-          <figure>
-            <div class="shot-frame"><img src="assets/04.jpg" alt="Table screen with the table code, four seats, and AI filling the empty ones" loading="lazy" /></div>
-            <figcaption><span class="shot-title">Open a Table</span></figcaption>
-          </figure>
-        </article>
-
-        <article class="shot">
-          <figure>
-            <div class="shot-frame"><img src="assets/05.jpg" alt="Table QR code dialog — a friend scans it to sit down instantly" loading="lazy" /></div>
-            <figcaption><span class="shot-title">Scan to Join</span></figcaption>
-          </figure>
-        </article>
-
-        <article class="shot">
-          <figure>
-            <div class="shot-frame"><img src="assets/06.jpg" alt="Theme picker — nine table themes, all included" loading="lazy" /></div>
-            <figcaption><span class="shot-title">Nine Table Themes</span></figcaption>
-          </figure>
-        </article>
-
-        <article class="shot">
-          <figure>
-            <div class="shot-frame"><img src="assets/07.jpg" alt="End-of-match report: ranking, deal-ins, self-draws, dealer streaks and best hand" loading="lazy" /></div>
-            <figcaption><span class="shot-title">Match Report</span></figcaption>
-          </figure>
-        </article>
-
-        <article class="shot">
-          <figure>
-            <div class="shot-frame"><img src="assets/08.jpg" alt="My Stats: games, win rate, net tai and favorite hands" loading="lazy" /></div>
-            <figcaption><span class="shot-title">Your Stats</span></figcaption>
-          </figure>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="features">
-    <div class="container">
-      <p class="section-label">Features</p>
-
-      <div class="feature-grid">
-        <article class="feature-card">
-          <h3>Taiwan Rules, Ready to Play</h3>
-          <ul class="feature-list">
-            <li>16-tile Taiwan Mahjong</li>
-            <li>Complete tai scoring, with every hand type recognised</li>
-            <li>Flowers, dealer runs, robbing the kong, kong-on-kong</li>
-            <li>Built for Taiwan rules first &mdash; not adapted from another ruleset</li>
-            <li>Single-player works with the network off</li>
-            <li>Pause a single-player hand and resume exactly where you left off</li>
-            <li>Turn the single-player timer off and take your time</li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <h3>Play With Friends</h3>
-          <ul class="feature-list">
-            <li>Private tables &mdash; a table code is required</li>
-            <li>Never matched with strangers</li>
-            <li>Start with two or three players; AI takes the empty seats</li>
-            <li>Drop out and rejoin your own seat</li>
-            <li>End-of-match report crowns four winners</li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <h3>Your Progress, Tracked</h3>
-          <ul class="feature-list">
-            <li>Win rate, longest streak, highest-scoring hand</li>
-            <li>Your top three winning hand types</li>
-            <li>Today, this week, this month, this year &mdash; each period on its own</li>
-            <li>Tracked separately for each AI difficulty</li>
-            <li>Share a hand, a milestone, or your year in review</li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <h3>New to Taiwan Mahjong?</h3>
-          <ul class="feature-list">
-            <li>Quick Start &mdash; playing in five minutes</li>
-            <li>Rule Book &mdash; chi, pong, kong, hu and tenpai, one at a time</li>
-            <li>Scoring Guide &mdash; every hand type and what it scores</li>
-            <li>Practice &mdash; questions that explain why you were wrong</li>
-            <li>Three AI difficulties to grow into</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="free">
-    <div class="container">
-      <p class="section-label">Free</p>
-      <div class="pro-card">
-        <div class="pro-copy">
-          <h2>Free to play. The game itself costs nothing.</h2>
-          <p>Every feature above is unlocked from the start, and this version has no in-app purchases.
-            Taiwan Mahjong Now is supported by advertising: one interstitial appears before the final dealer of each wind
-            round, and never in the middle of a hand. Single-player games work with the network off.</p>
+        <p class="hero-eyebrow">MyOpen Game</p>
+        <h1><span lang="zh-Hant">台灣麻將 Now</span></h1>
+        <div class="hub-taglines">
+          <span lang="zh-Hant">16 張台灣麻將，隨時開一桌</span>
+          <span>16-tile Taiwanese mahjong, any time</span>
+          <span lang="ja">台湾麻雀（16枚）をいつでも</span>
         </div>
         <div class="hero-actions">
-          <a href="https://apps.apple.com/app/id6802663114" class="btn btn-appstore" target="_blank" rel="noopener">Download on the App
-            Store</a>
-          <a href="https://apps.apple.com/app/id6802663114?action=write-review" class="btn btn-legal" target="_blank"
-            rel="noopener">Rate Taiwan Mahjong Now</a>
-          <a href="privacy-policy.html" class="btn btn-store">How Your Data Is Handled</a>
-          <a href="terms.html" class="btn btn-github">Terms of Service</a>
+          <a href="https://apps.apple.com/app/id6802663114?pt=128250087&amp;ct=web_hub&amp;mt=8" class="btn btn-appstore" target="_blank" rel="noopener">Download on the App Store</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="legal">
-    <div class="container">
-      <p class="section-label">Legal</p>
-      <div class="legal-grid">
-        <article class="legal-card">
-          <h3>Privacy Policy</h3>
-          <p>What stays on your device, what online play sends to our relay server, and how advertising is handled.</p>
-          <div class="legal-actions">
-            <a href="privacy-policy.html" class="btn btn-legal">Privacy Policy</a>
-          </div>
-        </article>
-
-        <article class="legal-card">
-          <h3>Terms of Service</h3>
-          <p>Service terms, fair play at online tables, availability of the relay server, and disclaimers.</p>
-          <div class="legal-actions">
-            <a href="terms.html" class="btn btn-legal">Terms of Service</a>
-          </div>
-        </article>
-
-        <article class="legal-card">
-          <h3>Licenses</h3>
-          <p>Third-party open-source attribution for the fonts and libraries used in Taiwan Mahjong Now.</p>
-          <div class="legal-actions">
-            <a href="licenses.html" class="btn btn-legal">Open Licenses</a>
-          </div>
-        </article>
+    <section id="languages">
+      <div class="container">
+        <div class="hub-langs">
+          <a class="next-card" href="/mahjongnow/zh-hant/" hreflang="zh-Hant" lang="zh-Hant"><strong>繁體中文 →</strong><span>台數表、怎麼打、為什麼打麻將</span></a>
+          <a class="next-card" href="/mahjongnow/en/" hreflang="en"><strong>English →</strong><span>How to play, scoring and why mahjong</span></a>
+          <a class="next-card" href="/mahjongnow/ja/" hreflang="ja" lang="ja"><strong>日本語 →</strong><span>日本麻雀との違いと台数表</span></a>
+        </div>
+        <p class="hub-support">
+          <span lang="zh-Hant">問題回報</span> · Support · <span lang="ja">お問い合わせ</span>：<a href="mailto:support@myopen.app">support@myopen.app</a>
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <footer>
     <div class="container">
@@ -321,57 +98,29 @@
           <p class="footer-tagline">16-tile Taiwan Mahjong. No account, no waiting.</p>
         </div>
         <ul class="footer-links">
-          <li><a href="../">All Apps</a></li>
-          <li><a href="privacy-policy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a href="licenses.html">Licenses</a></li>
+          <li><a href="/mahjongnow/privacy-policy.html">Privacy</a></li>
+          <li><a href="/mahjongnow/terms.html">Terms</a></li>
+          <li><a href="/mahjongnow/licenses.html">Licenses</a></li>
+          <li><a href="/">All Apps</a></li>
           <li><a href="mailto:support@myopen.app">Contact</a></li>
         </ul>
       </div>
-      <p class="footer-copy">&copy; 2026 MyOpen Apps</p>
+      <p class="footer-copy">&copy; 2026 MyOpen Studio · <a href="/">myopen.app</a></p>
+      <p class="footer-copy footer-notice">The tile artwork on this site is original to Taiwan Mahjong Now. Please don&#39;t copy or reuse it.</p>
     </div>
   </footer>
 
-  <script src="../assets/theme.js"></script>
-  <script src="../assets/lightbox.js"></script>
-  <script>
-    /* 中文瀏覽器造訪英文頁時，提示有中文版。不自動導向：
-       導向會讓使用者回不去，也會讓搜尋引擎抓不到正確的頁面。 */
-    (function () {
-      var hint = document.getElementById('langHint');
-      if (!hint) return;
-      var KEY = 'myopen-lang-hint-dismissed';
-      try { if (localStorage.getItem(KEY) === '1') return; } catch (e) {}
-      var langs = navigator.languages || [navigator.language || ''];
-      var wantsZh = Array.prototype.some.call(langs, function (l) {
-        return /^zh/i.test(l || '');
-      });
-      if (!wantsZh) return;
-      hint.hidden = false;
-      hint.classList.add('is-shown');
-      var close = document.getElementById('langHintClose');
-      if (close) {
-        close.addEventListener('click', function () {
-          hint.classList.remove('is-shown');
-          hint.hidden = true;
-          try { localStorage.setItem(KEY, '1'); } catch (e) {}
-        });
-      }
-    })();
-  </script>
-  <script>
-    // 宣傳影片捲到畫面裡才載入並播放（靜音），離開就暫停
-    (function () {
-      var v = document.querySelector('.promo-video video');
-      if (!v || !('IntersectionObserver' in window)) return;
-      new IntersectionObserver(function (es) {
-        es.forEach(function (e) {
-          if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-          else { v.pause(); }
-        });
-      }, { threshold: 0.4 }).observe(v);
-    })();
-  </script>
+  <script src="/assets/theme.js"></script>
+  <script>// 房號 QR（AppLinks.roomUrl ＝ /mahjongnow/?room=桌號）落地：只有網址帶合法桌號才顯示邀請。
+// 這一頁不連任何伺服器，也不替使用者入房 —— 桌號要在 App 裡輸入或掃碼。
+(function () {
+  var code;
+  try { code = (new URLSearchParams(location.search).get('room') || '').trim().toUpperCase(); } catch (e) { return; }
+  if (!/^[A-Z0-9]{6}$/.test(code)) return;
+  var box = document.getElementById('invite');
+  document.getElementById('inviteCode').textContent = code;
+  box.hidden = false;
+})();
+</script>
 </body>
-
 </html>
