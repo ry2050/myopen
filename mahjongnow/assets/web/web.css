@@ -1,0 +1,138 @@
+/* Mahjong Now 官網（產生器版）共用樣式。疊在官網的 common.css／product.css 上面，顏色一律用那裡的 token。 */
+
+/* ─── 字型：漢字要用各語言自己的字形 ─────────────────────── */
+.lang-ja, .lang-ja h1, .lang-ja h2, .lang-ja h3, .lang-ja .btn, .lang-ja .hero-eyebrow, .lang-ja .section-label, .lang-ja .shot-title {
+  font-family: 'DM Sans', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif;
+}
+.lang-zh-hant, .lang-zh-hant h1, .lang-zh-hant h2, .lang-zh-hant h3, .lang-zh-hant .btn {
+  font-family: 'DM Sans', 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+}
+
+/* ─── 導覽列 ─────────────────────────────────────────────── */
+.site-nav .nav-inner { gap: 24px; }
+.site-nav .brand { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0; white-space: nowrap; }
+.page-links { flex: 1; justify-content: flex-start; gap: 22px; }
+.page-links a[aria-current="page"] { color: var(--text); font-weight: 500; }
+.nav-tools { display: flex; align-items: center; gap: 14px; }
+.lang-links { display: inline-flex; gap: 10px; font-size: 12px; }
+.lang-links a { color: var(--text-dim); text-decoration: none; }
+.lang-links a:hover { color: var(--text); }
+.nav-app {
+  font-size: 13px; font-weight: 500; text-decoration: none; white-space: nowrap;
+  background: var(--accent); color: var(--accent-fg); border-radius: 999px; padding: 6px 14px;
+}
+.site-nav .theme-toggle { margin-left: 0; }
+
+.m-menu { display: none; position: relative; }
+.m-menu summary {
+  list-style: none; cursor: pointer; width: 34px; height: 30px; border: 1px solid var(--border); border-radius: 8px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px;
+}
+.m-menu summary::-webkit-details-marker { display: none; }
+.m-menu summary span { display: block; width: 14px; height: 1.5px; background: var(--text-muted); border-radius: 1px; }
+.m-menu-panel {
+  position: absolute; right: 0; top: calc(100% + 10px); min-width: 210px;
+  background: var(--bg-card); border: 1px solid var(--border-hover); border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14); padding: 8px; display: flex; flex-direction: column;
+}
+.m-menu-panel a { padding: 10px 12px; border-radius: 8px; font-size: 15px; color: var(--text); text-decoration: none; }
+.m-menu-panel a:hover, .m-menu-panel a[aria-current="page"] { background: var(--accent-dim); }
+.m-menu-langs { border-top: 1px solid var(--border); margin-top: 6px; padding-top: 6px; display: flex; flex-direction: column; }
+.m-menu-langs a { font-size: 14px; color: var(--text-muted); }
+
+@media (max-width: 760px) {
+  .page-links, .lang-links { display: none; }
+  .m-menu { display: block; }
+  .site-nav .nav-inner { gap: 12px; }
+  .nav-tools { gap: 10px; }
+}
+
+/* ─── 內文 ───────────────────────────────────────────────── */
+#hero { padding-top: 120px; padding-bottom: 36px; }
+section { padding: 44px 0; }
+section[id] { scroll-margin-top: 76px; }
+h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.35; letter-spacing: 0; margin-bottom: 20px; }
+h2 { font-size: clamp(22px, 3.6vw, 28px); font-weight: 500; line-height: 1.4; margin-bottom: 18px; color: var(--text); text-wrap: balance; }
+h3 { font-size: 16px; font-weight: 500; line-height: 1.6; margin-bottom: 6px; color: var(--text); }
+.btn { font-size: 13px; letter-spacing: 0; padding: 11px 16px; }
+.section-label { margin-bottom: 20px; letter-spacing: 0.04em; }
+.prose > p, .prose > ul, .prose > ol, .prose > h2, .prose > div, .prose .faq-item { max-width: 720px; }
+.prose p, .prose li { font-size: 15px; line-height: 1.9; color: var(--text-muted); }
+.prose p + p { margin-top: 12px; }
+.prose a:not(.btn) { color: var(--accent); }
+.lede { font-size: 16px; line-height: 1.9; color: var(--text-muted); max-width: 720px; }
+.lang-note {
+  margin-top: 18px; max-width: 720px; padding: 12px 16px;
+  border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 6px;
+  background: var(--bg-card); font-size: 14px; line-height: 1.8; color: var(--text);
+}
+.table-wrap { overflow-x: auto; margin: 4px 0 18px; max-width: 760px; }
+table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 14px; line-height: 1.7; }
+caption { text-align: left; font-size: 13px; color: var(--text-dim); padding-bottom: 8px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+thead th, tbody th { color: var(--text); font-weight: 500; }
+@media (max-width: 640px) {
+  table { min-width: 0; font-size: 13px; }
+  th, td { padding: 9px 8px 9px 0; }
+  tbody th, thead th:first-child { width: 22%; }
+}
+.steps { padding-left: 1.4em; }
+.steps li { margin-bottom: 10px; }
+.plain-list { padding-left: 1.2em; }
+.plain-list li { margin-bottom: 8px; }
+.faq-item { margin-bottom: 22px; }
+.fine { font-size: 13px !important; color: var(--text-dim) !important; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.screenshot-rail { margin: 8px 0 24px; }
+.footer-notice { margin-top: 4px; }
+.footer-copy a { color: inherit; }
+
+/* ─── 下一頁導覽卡 ───────────────────────────────────────── */
+.next-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; max-width: 760px; }
+.next-card {
+  display: flex; flex-direction: column; gap: 6px; padding: 18px; text-decoration: none;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.next-card:hover { border-color: var(--accent); background: var(--bg-card-hover); }
+.next-card strong { color: var(--accent); font-weight: 500; font-size: 16px; }
+.next-card span { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+
+/* ─── 台数表 ─────────────────────────────────────────────── */
+.tai-index { display: flex; flex-wrap: wrap; gap: 8px; max-width: 760px; margin-bottom: 8px; }
+.tai-index a {
+  font-size: 13px; text-decoration: none; color: var(--text-muted);
+  border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; background: var(--bg-card);
+}
+.tai-index a:hover { color: var(--text); border-color: var(--border-hover); }
+.hand-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
+.hand-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0;
+}
+.hand-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.hand-head h3 { margin: 0; font-size: 18px; }
+.hand-head .alt { font-size: 12px; color: var(--text-dim); }
+.hand-head .tai {
+  margin-left: auto; font-weight: 500; font-size: 18px; color: var(--accent);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.hand-card p { margin: 0; font-size: 14px; line-height: 1.8; color: var(--text-muted); }
+.hand-card .riichi { font-size: 12px; color: var(--text-dim); }
+.hand-img { padding: 10px; border-radius: 8px; background: var(--accent-dim); }
+/* 桌機高 48px；窄螢幕整手縮到卡片寬，和了牌（右端）一定看得到。max-width 由模板依張數寫在 style 上。 */
+.hand-img img { display: block; width: 100%; height: auto; }
+.hand-legend { font-size: 12px; color: var(--text-dim); }
+.summary-table td.num { text-align: right; font-variant-numeric: tabular-nums; color: var(--text); white-space: nowrap; }
+
+/* ─── なぜ麻雀 ───────────────────────────────────────────── */
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; max-width: 760px; }
+.pillar { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.pillar h3 { font-size: 17px; margin-bottom: 6px; }
+.pillar p { margin: 0; font-size: 14px; line-height: 1.8; color: var(--text-muted); }
+.pillar .ref { display: inline-block; margin-top: 8px; font-size: 12px; color: var(--accent); }
+.promise {
+  max-width: 720px; border-left: 3px solid var(--accent); padding: 4px 0 4px 18px;
+  font-size: clamp(18px, 3vw, 22px); line-height: 1.6; color: var(--text);
+}
+.promise small { display: block; margin-top: 6px; font-size: 13px; color: var(--text-muted); }
