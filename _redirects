@@ -2,3 +2,6 @@
 # 日文入門頁搬到 /mahjongnow/ja/（2026-11-10）
 /mahjongnow/ja/taiwanese-mahjong-guide    /mahjongnow/ja/  301
 /mahjongnow/ja/taiwanese-mahjong-guide/*  /mahjongnow/ja/  301
+# 繁中產品頁搬到 /mahjongnow/zh-hant/（2026-11-10）。/mahjongnow/ 本身不轉址（P0 三語入口頁）
+/mahjongnow/index.zh-hant.html            /mahjongnow/zh-hant/  301
+/mahjongnow/index.zh-hant                 /mahjongnow/zh-hant/  301

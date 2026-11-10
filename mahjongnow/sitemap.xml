@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.myopen.app/mahjongnow/</loc></url>
-  <url><loc>https://www.myopen.app/mahjongnow/index.zh-hant.html</loc></url>
+  <url><loc>https://www.myopen.app/mahjongnow/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://www.myopen.app/mahjongnow/zh-hant/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://www.myopen.app/mahjongnow/en/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://www.myopen.app/mahjongnow/ja/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://www.myopen.app/mahjongnow/zh-hant/how-to-play/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://www.myopen.app/mahjongnow/en/how-to-play/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://www.myopen.app/mahjongnow/zh-hant/tai/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://www.myopen.app/mahjongnow/en/tai/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://www.myopen.app/mahjongnow/ja/tai/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://www.myopen.app/mahjongnow/zh-hant/why-mahjong/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://www.myopen.app/mahjongnow/en/why-mahjong/</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://www.myopen.app/mahjongnow/ja/why-mahjong/</loc><lastmod>2026-11-10</lastmod></url>
 </urlset>
