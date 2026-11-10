@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  整站共用的 404。Cloudflare Pages 找不到路徑時回這一頁，狀態碼 404。
+  沒有這個檔案時，Cloudflare 會把任何不存在的網址當成首頁、回 200 ——
+  網址打錯（例如 App Store Connect 的隱私權政策欄位）就會默默顯示首頁，沒有任何錯誤。
+  任何網址都可能用到這一頁，所以資源一律用絕對路徑。
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Page not found · 找不到這一頁 – MyOpen</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('myopen-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/common.css">
+  <style>
+    body { background: var(--bg); }
+    .nf { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 96px 16px 48px; }
+    .nf-inner { max-width: 560px; width: 100%; text-align: center; }
+    .nf-code { font-family: 'DM Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 16px; }
+    .nf h1 { font-size: clamp(26px, 6vw, 36px); font-weight: 500; line-height: 1.35; color: var(--text); margin-bottom: 6px; }
+    .nf h1 span { display: block; }
+    .nf p { color: var(--text-muted); font-size: 15px; line-height: 1.8; margin: 14px 0 28px; }
+    .nf-links { display: grid; gap: 10px; text-align: left; }
+    .nf-links a {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      color: var(--text); text-decoration: none; font-size: 15px;
+    }
+    .nf-links a:hover { border-color: var(--accent); background: var(--bg-card-hover); }
+    .nf-links small { color: var(--text-dim); font-size: 13px; }
+    .lang-zh { font-family: 'DM Sans', 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">myopen.app</a>
+      <ul class="nav-links">
+        <li>
+          <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="nf">
+    <div class="nf-inner">
+      <p class="nf-code">404</p>
+      <h1><span>Page not found</span><span class="lang-zh" lang="zh-Hant">找不到這一頁</span></h1>
+      <p>The link may be mistyped, or the page has moved.<br><span class="lang-zh" lang="zh-Hant">網址可能打錯了，或是這一頁已經搬家。</span></p>
+      <div class="nf-links">
+        <a href="/"><span>MyOpen Apps</span><small>myopen.app</small></a>
+        <a href="/index.zh-hant.html" lang="zh-Hant" class="lang-zh"><span>所有 App（中文）</span><small>myopen.app</small></a>
+        <a href="/mahjongnow/"><span>Taiwan Mahjong Now · <span lang="zh-Hant" class="lang-zh">台灣麻將 Now</span></span><small>/mahjongnow/</small></a>
+        <a href="mailto:support@myopen.app"><span>Contact · <span lang="zh-Hant" class="lang-zh">聯絡我們</span></span><small>support@myopen.app</small></a>
+      </div>
+    </div>
+  </main>
+
+  <script src="/assets/theme.js"></script>
+</body>
+</html>
