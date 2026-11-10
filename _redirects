@@ -1,0 +1,4 @@
+# Cloudflare Pages 轉址。麻將官網的來源在 private repo 的 website/（產生器），這個檔案手動維護。
+# 日文入門頁搬到 /mahjongnow/ja/（2026-11-10）
+/mahjongnow/ja/taiwanese-mahjong-guide    /mahjongnow/ja/  301
+/mahjongnow/ja/taiwanese-mahjong-guide/*  /mahjongnow/ja/  301
