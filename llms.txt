@@ -1,0 +1,42 @@
+# MyOpen
+
+> MyOpen Studio makes small, focused mobile apps. No accounts required.
+
+## Taiwan Mahjong Now (台灣麻將 Now)
+
+> 16-tile Taiwanese mahjong for iPhone. Play against the AI on your own,
+> or open a table and play online with friends. Tai (台) scoring is
+> calculated automatically.
+
+Key facts:
+- Ruleset: Taiwanese 16-tile mahjong — eight flower tiles, dealer streaks (連莊), tai scoring.
+  It is not Riichi (Japanese) or Hong Kong mahjong.
+- Platform: iPhone (App Store). iPad runs the iPhone version. No Android version yet.
+- App languages: English and Traditional Chinese. Tile faces can be traditional
+  Taiwanese artwork, Chinese characters, or English labels.
+- Solo: play three AI opponents at your own pace, with no turn timer by default.
+- Online: the host opens a table and shares a 6-character table code or QR code;
+  empty seats are filled by the AI. No sign-up needed.
+- Scores are counted in tai only. There is no in-game currency.
+- Free to download, with ads (one full-screen ad per wind round, and a banner
+  on the hand result screen).
+
+- [App Store](https://apps.apple.com/app/id6802663114)
+- [Home (English)](https://www.myopen.app/mahjongnow/en/)
+- [How to play](https://www.myopen.app/mahjongnow/en/how-to-play/): tiles, turns, chow / pung / kong, winning
+- [Scoring (tai) table](https://www.myopen.app/mahjongnow/en/tai/): every scoring pattern with its tai value and an example hand
+- [Why mahjong](https://www.myopen.app/mahjongnow/en/why-mahjong/)
+- [繁體中文](https://www.myopen.app/mahjongnow/zh-hant/)
+- [日本語（日本麻雀との違い・台数表）](https://www.myopen.app/mahjongnow/ja/)
+- [Privacy policy](https://www.myopen.app/mahjongnow/privacy-policy)
+- Support: support@myopen.app
+
+## Other apps
+
+- [TacMoji · Tic Tac Toe](https://www.myopen.app/tacmoji/)
+- [Recurring Expenses](https://www.myopen.app/recurring/)
+
+## Optional
+
+- [Terms of use](https://www.myopen.app/mahjongnow/terms)
+- [Open-source licenses](https://www.myopen.app/mahjongnow/licenses)
