@@ -1,6 +1,6 @@
 # MyOpen
 
-> MyOpen Studio makes small, focused mobile apps. No accounts required.
+> MyOpen Studio makes small, focused mobile apps.
 
 ## Taiwan Mahjong Now (台灣麻將 Now)
 
@@ -16,7 +16,8 @@ Key facts:
   Taiwanese artwork, Chinese characters, or English labels.
 - Solo: play three AI opponents at your own pace, with no turn timer by default.
 - Online: the host opens a table and shares a 6-character table code or QR code;
-  empty seats are filled by the AI. No sign-up needed.
+  empty seats are filled by the AI.
+- No account needed to play — solo and online play work without signing in.
 - Scores are counted in tai only. There is no in-game currency.
 - Free to download, with ads (one full-screen ad per wind round, and a banner
   on the hand result screen).
