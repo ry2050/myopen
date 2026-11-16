@@ -5,3 +5,6 @@
 # 繁中產品頁搬到 /mahjongnow/zh-hant/（2026-11-10）。/mahjongnow/ 本身不轉址（P0 三語入口頁）
 /mahjongnow/index.zh-hant.html            /mahjongnow/zh-hant/  301
 /mahjongnow/index.zh-hant                 /mahjongnow/zh-hant/  301
+# 舊目錄 mahjong/ 已改名 mahjongnow/（2026-09），舊連結轉到入口頁
+/mahjong     /mahjongnow/  301
+/mahjong/*   /mahjongnow/  301
